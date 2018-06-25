@@ -1,0 +1,42 @@
+Hi Team,
+
+Below is a list of bug/features released on *Thursday, June 7* for *Kargo Marketplace*, *Version 3.61*, to production
+
+*_Kargo Marketplace (KOPs)_*
+```
+RELEASED TO PROD (Version 3.61):
+ - KME-4968: Campaign: Remove Platform Managers and absorb as Client Service Managers in KM
+ - KME-4908: "Creative Name" is not displaying above "Creative Type" on "Associate Line Items" window
+ - KME-5040: Poor website performance in testing environment (STG/DEV) 
+ - KME-4999: User is blocked from creating (Network) & (Publication) campaign types.
+ - KME-4918: Missing "Monthly goals" and "Monthly Buffer" values on media plan tab
+ - KME-5009: "LINE ITEM TYPE" filter is displaying wrong results when more than one type is selected
+ - KME-5016: Creating a campaign of "Publication" Sales Source without filling the Publisher field is accepted
+ - KME-5006: Media Plan tab - After approving campaign, ‘Pause’ option is not displaying under Line item’s action button unless user refreshes the page.
+ - KME-4766: Media Plan tab : Deleted line items will get (Impression Goals) after clicking on “Distribute impressions evenly” button and error message displays upon saving.
+ - KME-5038: Campaign with non pushed Kraken LI fails to approve
+ - KME-5021: Upon duplication of any line item "Contract Rate" displays blank before submitting it
+ - KME-4963: Deal Groups – “Designer” column is still displaying within Deal Group’s exported sheet.
+
+
+----
+
+MOVING TO NEXT SPRINT (Version 3.62):
+ - KME-4490: Trigger toast confirmation for a status failure is displaying in green color.
+ - KME-4809: Editing Carve-out line items site list generates new line items
+ - KME-5042: "Monthly Buffer" value goes up when carving out a line item with zero buffer and return to its correct value after saving
+ - KME-5055: Some graphs are not being pulled, and API for each graph is generating 500 internal server error
+ - KME-4923: Media Plan tab : Start Flight Date displays disabled for Carved out line items before Saving
+
+----
+
+CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
+ - KME-5026: “Campaign Approval Failed” popup displays when approving a campaign containing only PubOffers, and JS error is thrown on console.
+
+
+----
+
+MOVING TO BACKLOG (Future Sprint):
+- KME-5044: 'Pause' & 'Resume' options are displaying even if the campaign isn't approved.```
+
+cc: @here
