@@ -1,42 +1,52 @@
 Hi Team,
 
-Below is a list of bug/features released on *Thursday, June 7* for *Kargo Marketplace*, *Version 3.61*, to production
+Below is a list of bug/features released on *Monday, June 25* for *Kargo Marketplace*, *Version 3.62*, to production
 
 *_Kargo Marketplace (KOPs)_*
 ```
-RELEASED TO PROD (Version 3.61):
- - KME-4968: Campaign: Remove Platform Managers and absorb as Client Service Managers in KM
- - KME-4908: "Creative Name" is not displaying above "Creative Type" on "Associate Line Items" window
- - KME-5040: Poor website performance in testing environment (STG/DEV) 
- - KME-4999: User is blocked from creating (Network) & (Publication) campaign types.
- - KME-4918: Missing "Monthly goals" and "Monthly Buffer" values on media plan tab
- - KME-5009: "LINE ITEM TYPE" filter is displaying wrong results when more than one type is selected
- - KME-5016: Creating a campaign of "Publication" Sales Source without filling the Publisher field is accepted
- - KME-5006: Media Plan tab - After approving campaign, ‘Pause’ option is not displaying under Line item’s action button unless user refreshes the page.
- - KME-4766: Media Plan tab : Deleted line items will get (Impression Goals) after clicking on “Distribute impressions evenly” button and error message displays upon saving.
- - KME-5038: Campaign with non pushed Kraken LI fails to approve
- - KME-5021: Upon duplication of any line item "Contract Rate" displays blank before submitting it
- - KME-4963: Deal Groups – “Designer” column is still displaying within Deal Group’s exported sheet.
-
+RELEASED TO PROD (Version 3.62):
+ - KME-4969: Deal Group: Remove Platform Managers and absorb as Client Service Managers in KM
+ - KME-4970: Campaign: Add Client Partnerships as new field and relationship
+ - KME-4490: Specific Placement: Trigger toast confirmation for a status failure is displaying in green color
+ - KME-4532: Site list builder : (Ad Units) & (Publishers) filters will be reset upon using (Approved for) filter
+ - KME-4789: Tables - Long Line Item Nomenclature Fixing
+ - KME-5042: "Monthly Buffer" value goes up when carving out a line item with zero buffer and return to its correct value after saving
+ - KME-4971: Deal Group: Add Client Partnerships as new field and relationship
+ - KME-5104: Status Filter in KM not working
+ - KME-5044: 'Pause' & 'Resume' options are displaying even if the campaign isn't approved
+ - KME-4921: Repush Failed Error Messaging: Frontend 
+ - KME-4995: Total buffer in media plan tab increases when carving out from a regular line item before saving
+ - KME-5055: Some graphs are not being pulled, and API for each graph is generating 500 internal server error
+ - KME-4809: Editing Carve-out line items site list generates new line items
 
 ----
 
-MOVING TO NEXT SPRINT (Version 3.62):
- - KME-4490: Trigger toast confirmation for a status failure is displaying in green color.
- - KME-4809: Editing Carve-out line items site list generates new line items
- - KME-5042: "Monthly Buffer" value goes up when carving out a line item with zero buffer and return to its correct value after saving
- - KME-5055: Some graphs are not being pulled, and API for each graph is generating 500 internal server error
+MOVING TO NEXT SPRINT (Version 3.63):
+ - KME-5033: Editing placement's site list then pushing campaign keeps the site list tab in the before push status until page is refreshed (Refresh Issue)
+ - KME-5024: User is unable to get campaign using 'Upcoming'/'Active & Upcoming' options when the campaign is with 'upcoming' status (the campaign is missing placement & line items)
  - KME-4923: Media Plan tab : Start Flight Date displays disabled for Carved out line items before Saving
+ - KME-4987: Media Plan tab : when Associate/Dissociate Creatives, “Submit” button will be disabled if the user clicks on “Cancel” button from the confirmation pop-up.
+ - KME-5054: A wrong date (Yesterday date) is displaying in the trackers date picker.
+ - KME-5125: Associate icon is no aligned properly on media plan tab
+ - KME-5126: 'Re-push Campaign' button is missing from campaign action button.
+ - KME-5127: The displayed text of the error is wrong within the line-item level.
+ - KME-5129: Green sync indicator is displaying to the off-network line item that indicate the LI is being pushed & synced with the ad server.
+ - KME-5130: (Refresh Issue) Resume and Pause actions from campaign level is not reflected in media plan while placement is expanded unless page is refreshed
+ - KME-5132: Refresh Issue: LI status is not updated when pushed from LI level unless page is refreshed
+ - KME-5137: User isn't able to associate pub offer with creative when it has any type even if the placement has a single pub offer, moreover, JS error is thrown.
+
 
 ----
 
 CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
- - KME-5026: “Campaign Approval Failed” popup displays when approving a campaign containing only PubOffers, and JS error is thrown on console.
+ - KME-5131: 'Resume' option is displaying even if there is no line item is paused.
 
 
 ----
 
 MOVING TO BACKLOG (Future Sprint):
-- KME-5044: 'Pause' & 'Resume' options are displaying even if the campaign isn't approved.```
+ - KME-5022: Media plan tab : For Monthly Goals Placements, when deleting regular carve-out line items on specific month tab, kraken carve-out line items on other month tabs are getting deleted.
+ - KME-5055: some graphs are not being pulled, and API for each graph is generating 500 internal server error.
+ ```
 
 cc: @here
