@@ -8,6 +8,7 @@ RELEASED TO PROD (Version 3.62):
  - KME-4969: Deal Group: Remove Platform Managers and absorb as Client Service Managers in KM
  - KME-4970: Campaign: Add Client Partnerships as new field and relationship
  - KME-4490: Specific Placement: Trigger toast confirmation for a status failure is displaying in green color
+ - KME-5058: Support for pushing KRAKEN line items with inactive state when campaign is yet to be approved
  - KME-4532: Site list builder : (Ad Units) & (Publishers) filters will be reset upon using (Approved for) filter
  - KME-4789: Tables - Long Line Item Nomenclature Fixing
  - KME-5042: "Monthly Buffer" value goes up when carving out a line item with zero buffer and return to its correct value after saving
