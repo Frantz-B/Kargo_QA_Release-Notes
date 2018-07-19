@@ -1,5 +1,6 @@
 Hi Team,
 
+<<<<<<< HEAD
 Below is a list of bug/features released on *Wednesday, July 18* for *Kargo Marketplace*, *Version 3.64*, to production
 
 *_Kargo Marketplace (KOPs)_*
@@ -45,19 +46,88 @@ MOVING TO NEXT SPRINT (Version 3.65.0):
  - KME-5223: Users other than campaign manager can view Bulk Apply Custom Targeting modal
  - KME-5224: For monthly placements, new Kraken LIs are getting generated when adding new months to placement (for all the previously selected months).
  - KME-5225: Approval email notification is received for member's other than campaign manager
+=======
+Below is a list of bug/features released on *Tuesday, July 10* for *Kargo Marketplace*, *Version 3.63*, to production
+
+*_Kargo Marketplace (KOPs)_*
+```
+RELEASED TO PROD (Version 3.63):
+ - KME-5147: Buffering tool - buffered impression calculation needs to updated
+ - KME-5138: Send CMs Media Planning Notifications
+ - KME-4985: Email notification: Send email notification to new Team Members
+ - KME-5141: (Resume , Pause) options are displaying on campaign’s action button for archived campaigns.
+ - KME-5140: Media Plan: For a placement with pub-offer LIs only '0' is missing from "Total Buffer" value
+ - KME-5127: The displayed text of the error is wrong within the line-item level.
+ - KME-5053: For pushed campaign without Geography editing any LIs geography with any data does not display it on Repush modal
+ - KME-4987: Campaign – Media Plan tab : when Associate/Dissociate Creatives, “Submit” button will be disabled if the user clicks on “Cancel” button from the confirmation pop-up.
+
+----
+
+MOVING TO NEXT SPRINT (Version 3.64):
+ - KME-5033: (Edit & Re-Inherit) buttons will still be clickable when Editing placement's site list then pushing campaign until page is refreshed (Refresh Issue)
+ - KME-5054: A wrong date (Yesterday date) is displaying in the trackers date picker.
+ - KME-5126: 'Re-push Campaign' button is missing from campaign action button.
+ - KME-5139: For Off-Network LIs, “Edit” button is not disabled and throws error in console when used.
+ - KME-5142: Third-party trackers: The vendor name is displayed as a null when user deletes it from "Tracking Vendors" page
+ - KME-5158: The editable part of the Kraken LI’s name is not displaying in the name field, however user can edit the name without observing his/her updates.
+ - KME-5162: For archived campaign edits on team from creative level is not accepted but is still saved in its field
+ - KME-5203: Placement – Creatives tab: when Associate line items to creatives, “Submit” button will be disabled if the user clicks on “Cancel” button from the confirmation pop-up.
+ - KME-5125: Associate icon is no aligned properly on media plan tab
+ - KME-5129: Green sync indicator is displaying to the off-network line item that indicate the LI is being pushed & synced with the ad server.
+ - KME-5137: User isn't able to associate pub offer with creative when it has any type even if the placement has a single pub offer, moreover, JS error is thrown.
+ - KME-4542: Line item end date is being decremented by 2 when user duplicate it
+ - KME-5105: (Pre DFP) Status and its header are not aligned properly, extra space is displaying before status
+ - KME-5106: (Post DFP) Hover explaining the indicator color is displaying improperly
+ - KME-4988: Global for Discussions: Refresh Issue: Number of discussions is not updated immediately unless user refresh the page.
+ - KME-5159: Emails are not sent to Campaign Managers & Client Service Managers when Campaign is MediaPlanned nor for newly created or deleted placements
+ - KME-5148: Refresh Issue: Error banner does not stop displaying when archiving a campaign unless page is refreshed
+>>>>>>> origin/master
 
 
 ----
 
 CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
+<<<<<<< HEAD
  - KME-5054: A wrong date (Yesterday date) is displaying in the trackers date picker.
  - KME-5142: Third-party trackers: The vendor name is displayed as a null when user deletes it from "Tracking Vendors" page
+=======
+ - KME-5024: User is unable to get campaign using 'Upcoming'/'Active & Upcoming' options when the campaign is with 'upcoming' status (the campaign is missing placement & line items)
+ - KME-4923: Media Plan tab : Start Flight Date displays disabled for Carved out line items before Saving
+>>>>>>> origin/master
 
 
 ----
 
 MOVING TO Future Sprint / Backlog:
+<<<<<<< HEAD
  - KME-5206: The client sales lead does not exist with a team member in creation, and we can add it from sales split section from campaign left rail.
  ```
 
 cc: @here
+=======
+ - KME-5130: (Refresh Issue) Resume and Pause actions from campaign level is not reflected in media plan while placement is expanded unless page is refreshed
+ - KME-5132: Refresh Issue: LI status is not updated when pushed from LI level unless page is refreshed
+ ```
+
+cc: @here
+
+
+
+
+
+
+
+
+================================IN-Hub Deployment===================================
+Hi Team,
+
+Below is a list of bug/features released on *Wednesday, July 11* for *Integrations Hub*, *Version 1.48.0*, to production
+
+*_Integrations Hub (IN-Hub)_*
+```
+RELEASED TO PROD (Version 1.48.0):
+ - KME-5152: Kraken line items should not push with frequency cap settings
+ ```
+
+cc: @here
+>>>>>>> origin/master
