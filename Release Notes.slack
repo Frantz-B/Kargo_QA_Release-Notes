@@ -1,63 +1,61 @@
 Hi Team,
 
-Below is a list of bug/features released on *Wednesday, July 18* for *Kargo Marketplace*, *Version 3.64*, to production
+Below is a list of bug/features released on *Wednesday, August 01* for *Kargo Marketplace*, *Version 3.65.0*, to production
 
 *_Kargo Marketplace (KOPs)_*
 ```
-RELEASED TO PROD (Version 3.64.0):
- - KME-5048: Bulk Editing Targets - Allow Users to Bulk Edit Placement's Line Items Targets
- - KME-5136: Phase 4: Reports - Update exports with new Team Member Associations
- - KME-5144: Campaigns and Deals - Make Client Development Manager optional field
- - KME-5126: 'Re-push Campaign' button is missing from campaign action button.
- - KME-5005: After User unarchives the campaign Pause/Resume options are not displaying unless user tries to pause/resume a specific line item.
- - KME-4988: Global for Discussions: Refresh Issue: Number of discussions is not updated immediately unless user refresh the page.
- - KME-3962: Invoicing table : History button isn't displaying ((Created by)) data.
+RELEASED TO PROD (Version 3.65.0):
+ - KME-5154: Pause and Resume at Placement
+ - KME-5134: Deal Group  - Display flight dates for deal groups
+ - KME-5277: For non-pushed LIs, “Edit” button displays clickable under (Creative) tab and throws error in console when used.
+ - KME-5258: Refresh Issue: Number of discussions for property & ad slot pages is not updated immediately unless user refreshes the page.
+ - KME-5256: Associated LI IDs are not displaying under placement’s (Creative tab).
+ - KME-5227: Agencies cannot be created because KM endpoint throws 500 error
+ - KME-5222: 'Global Client Lead' column is missing from deal groups export sheet.
+ - KME-5219: Publishers: Number of discussions is not updated immediately unless user refresh the page
+ - KME-5213: Bulk Editing Target : When saving targeting updates using (Bulk Apply and Save), (Re-inherit) button doesn’t display and Target status label doesn’t change until refreshing the page
+ - KME-5211: Bulk Editing Target : After saving LI’s Bulk edits, the success toast display cropped.
+ - KME-5203: Placement – Creatives tab: when Associate line items to creatives, “Submit” button will be disabled if the user clicks on “Cancel” button from the confirmation pop-up.
+ - KME-5162: For archived campaign edits on team from creative level is not accepted but is still saved in its field
+ - KME-5148: Refresh Issue: Error banner does not stop displaying when archiving a campaign unless page is refreshed
+ - KME-5139: For Off-Network LIs, “Edit” button is not disabled and throws error in console when used.
+ - KME-5125: Associate icon is no aligned properly on media plan tab
+ - KME-5033: (Edit & Re-Inherit) buttons will still be clickable when Editing placement's site list then pushing campaign until page is refreshed (Refresh Issue)
+ - KME-5220: The returned search results have items don’t contain the searched keyword in their names(but have team members have this keyword in their names)
 
 ----
 
-MOVING TO NEXT SPRINT (Version 3.65.0):
- - KME-5220: The returned search results have items don’t contain the searched keyword in their names(but have team members have this keyword in their names)
- - KME-5212: User is unable to select all line items together (select all checkbox is missing).
+MOVING TO NEXT SPRINT (Version 3.66.0):
+ - KME-5284: Refresh Issue: "Edit" button is disabled after push for a LI in a post DFP campaign until page is refreshed
+ - KME-5226: Approval email notification is received for member's other than campaign manager
+ - KME-5224: For monthly placements, new Kraken LIs are getting generated when adding new months to placement (for all the previously selected months).
+ - KME-5204: Successfully Pushed banner is being displayed when re-pushing failed line item to the ad server even if the line item is failed to re-push.
  - KME-5163: Browser/ mobile carrier/ operating system targeting cannot be replaced by 'Null' in dfp when a user deletes them from KM side.
- - KME-5162: For archived campaign edits on team from creative level is not accepted but is still saved in its field
+ - KME-5106: (Post DFP) Hover explaining the indicator color is displaying improperly
+ - KME-4641: Specific Placement: User can't update the end date in the future of a placement that is in DFP to today's date
+ - KME-4284: (Monthly Goals Placement): JS Error is thrown when carving out a Kraken LI item by selecting 'Every Month' option, after adding new months to placement’s flight date.
+ - KME-5212: User is unable to select all line items together (select all checkbox is missing).
  - KME-5158: Upon editing Kraken carveout LIs, the editable part of the LI’s name is not displaying in the name field, however user can edit the name without observing his/her updates.
  - KME-5137: User isn't able to associate pub offer with creative when it has any type even if the placement has a single pub offer, moreover, JS error is thrown.
  - KME-5129: Green sync indicator is displaying to the off-network line item that indicate the LI is being pushed & synced with the ad server.
- - KME-5125: Associate icon is no aligned properly on media plan tab
- - KME-5109: Reese's Viewstream Video Quartile Tracker Issue | 5.8.18 (Investigation for Trackers)
- - KME-5106: (Post DFP) Hover explaining the indicator color is displaying improperly
  - KME-5105: (Pre DFP) Status and its header are not aligned properly, extra space is displaying before status
- - KME-4641: Specific Placement: User can't update the end date in the future of a placement that is in DFP to today's date
- - KME-5033: (Edit & Re-Inherit) buttons will still be clickable when Editing placement's site list then pushing campaign until page is refreshed (Refresh Issue)
- - KME-5139: For Off-Network LIs, “Edit” button is not disabled and throws error in console when used.
- - KME-5203: Placement – Creatives tab: when Associate line items to creatives, “Submit” button will be disabled if the user clicks on “Cancel” button from the confirmation pop-up.
  - KME-4542: Line item end date is being decremented by 2 when user duplicate it
  - KME-5159: Emails are not sent to Campaign Managers & Client Service Managers when Campaign is MediaPlanned nor for newly created or deleted placements
- - KME-5148: Refresh Issue: Error banner does not stop displaying when archiving a campaign unless page is refreshed
- - KME-5024: Successfully Pushed banner is being displayed when re-pushing failed line item to the ad server even if the line item is failed to re-push.
- - KME-5219: Publishers: Number of discussions is not updated immediately unless user refresh the page
  - KME-5221: In placement export excel sheet, the downloaded excel sheet displays -> 'Agency Sales Leads' column label instead of 'Agency Sales Leads/Rev Share' label. 
- - KME-5222: 'Global Client Lead' column is missing from deal groups export sheet.
- - KME-4284: (Monthly Goals Placement): JS Error is thrown when carving out a Kraken LI item by selecting 'Every Month' option, after adding new months to placement’s flight date.
- - KME-5211: Bulk Editing Target : After saving LI’s Bulk edits, the success toast display cropped.
- - KME-5213: Bulk Editing Target : When saving targeting updates using (Bulk Apply and Save), (Re-inherit) button doesn’t display and Target status label doesn’t change until refreshing the page
- - KME-5217: Refresh-Issue: When user select LIs to be bulked from any LI, the updates on bulked LI will not be reflected directly unless user refreshes the page.
  - KME-5223: Users other than campaign manager can view Bulk Apply Custom Targeting modal
- - KME-5224: For monthly placements, new Kraken LIs are getting generated when adding new months to placement (for all the previously selected months).
- - KME-5225: Approval email notification is received for member's other than campaign manager
-
 
 ----
 
 CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
- - KME-5054: A wrong date (Yesterday date) is displaying in the trackers date picker.
- - KME-5142: Third-party trackers: The vendor name is displayed as a null when user deletes it from "Tracking Vendors" page
+ - KME-4685: Reports: Specific graphs are not displaying even though it has graph data.
+ - KME-5024: Successfully Pushed banner is being displayed when re-pushing failed line item to the ad server even if the line item is failed to re-push.
 
 
 ----
 
-MOVING TO Future Sprint / Backlog:
- - KME-5206: The client sales lead does not exist with a team member in creation, and we can add it from sales split section from campaign left rail.
- ```
+MOVING TO Future Sprint / Backlog:	
+ - KME-5286: Changes on agency name are not reflected correctly in the User Companies table
+ - KME-5109: Reese's Viewstream Video Quartile Tracker Issue | 5.8.18 (Investigation for Trackers)
+```
 
 cc: @here
