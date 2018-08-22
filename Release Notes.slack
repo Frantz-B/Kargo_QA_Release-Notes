@@ -1,61 +1,56 @@
 Hi Team,
 
-Below is a list of bug/features released on *Wednesday, August 01* for *Kargo Marketplace*, *Version 3.65.0*, to production
+Below is a list of bug/features released on *Wednesday, August 20* for *Kargo Marketplace*, *Version 3.66.0*, to production
 
 *_Kargo Marketplace (KOPs)_*
 ```
-RELEASED TO PROD (Version 3.65.0):
- - KME-5154: Pause and Resume at Placement
- - KME-5134: Deal Group  - Display flight dates for deal groups
- - KME-5277: For non-pushed LIs, “Edit” button displays clickable under (Creative) tab and throws error in console when used.
- - KME-5258: Refresh Issue: Number of discussions for property & ad slot pages is not updated immediately unless user refreshes the page.
- - KME-5256: Associated LI IDs are not displaying under placement’s (Creative tab).
- - KME-5227: Agencies cannot be created because KM endpoint throws 500 error
- - KME-5222: 'Global Client Lead' column is missing from deal groups export sheet.
- - KME-5219: Publishers: Number of discussions is not updated immediately unless user refresh the page
- - KME-5213: Bulk Editing Target : When saving targeting updates using (Bulk Apply and Save), (Re-inherit) button doesn’t display and Target status label doesn’t change until refreshing the page
- - KME-5211: Bulk Editing Target : After saving LI’s Bulk edits, the success toast display cropped.
- - KME-5203: Placement – Creatives tab: when Associate line items to creatives, “Submit” button will be disabled if the user clicks on “Cancel” button from the confirmation pop-up.
- - KME-5162: For archived campaign edits on team from creative level is not accepted but is still saved in its field
- - KME-5148: Refresh Issue: Error banner does not stop displaying when archiving a campaign unless page is refreshed
- - KME-5139: For Off-Network LIs, “Edit” button is not disabled and throws error in console when used.
+RELEASED TO PROD (Version 3.66.0):
+ - KME-5153: Line Item Targeting - Create Day Parting Tool and push to DFP and Kraken
+ - KME-5212: Add "select all" checkbox to Bulk Apply Targeting page
+ - KME-4496: Copy and Paste for Audience Targeting Segments
+ - KME-5291: Backend Work: Line Item Site List - Allow Users to Bulk add or remove properties
+ - KME-5181: Core application language upgrade
+ - KME-5208: Line Item Day Parting - Allow Users to Bulk Edit Placement's Line Items Day Parting Schedule
+ - KME-5330: Day Parting Reinherit - Highlight the day parting tool as running all day
+ - KME-5319: Adrienne Ross - Unable to create DEALS nor DEAL GROUPS
+ - KME-5303: Campaign > Placement > Line item : The validation message displaying improperly after entering invalid data
+ - KME-5278: 'Invalid Date - Unlimited' is displaying under deal flight date label on deal left rail moreover an error is thrown.
+ - KME-5130: (Refresh Issue) Resume and Pause actions from campaign level is not reflected in media plan while placement is expanded unless page is refreshed
+ - KME-5129: Green sync indicator is displaying to the off-network line item that indicate the LI is being pushed & synced with the ad server.
  - KME-5125: Associate icon is no aligned properly on media plan tab
- - KME-5033: (Edit & Re-Inherit) buttons will still be clickable when Editing placement's site list then pushing campaign until page is refreshed (Refresh Issue)
- - KME-5220: The returned search results have items don’t contain the searched keyword in their names(but have team members have this keyword in their names)
+ - KME-4542: Line item end date is being decremented by 2 when user duplicate it
+ - KME-5105: (Pre DFP) Status and its header are not aligned properly, extra space is displaying before status
+
 
 ----
 
-MOVING TO NEXT SPRINT (Version 3.66.0):
+MOVING TO NEXT SPRINT (Version 3.67.0):
+ - KME-5338: The user is able to paste the copied value from browser targeting field to mobile carrier field.
+ - KME-5337: Bulk Targeting : The success toast displays wrong LIs number, when selecting specific LIs then sort and re-select LIs.
+ - KME-5336: Pub offer LIs are being pushed to dfp with day-parting tool
+ - KME-5333: The updates in day & time targeting are not properly formatted in the review to re-push modal (JSON body is not formatted (not readable for the user)).
+ - KME-5325: Site List : (Submit) button will be enabled when user deselect the selected site list after re-searching a different site list name.
+ - KME-5323: Edit placement's targeting/site list before and after submit does not display it in history
+ - KME-5322: Refresh Issue(Targeting tab/ Creatives tab): Archiving a LI while on edit mode keeps the buttons enabled
+ - KME-5306: Publishers : On (Demand) tab, LI IDs are missing under (Line Items) table.
+ - KME-5302: (Refresh Issue) Resume and Pause actions from campaign level are not reflected on action button status options while placement is expanded unless page is refreshed
+ - KME-5300: Edit regular carveout line item's site list does not prompt repush
+ - KME-5297: Targeting tab: User is able to (paste) on (Target Audience) field while the vendor key is not selected.
+ - KME-5294: Improper data displaying for "History" on campaign overview page
  - KME-5284: Refresh Issue: "Edit" button is disabled after push for a LI in a post DFP campaign until page is refreshed
  - KME-5226: Approval email notification is received for member's other than campaign manager
  - KME-5224: For monthly placements, new Kraken LIs are getting generated when adding new months to placement (for all the previously selected months).
- - KME-5204: Successfully Pushed banner is being displayed when re-pushing failed line item to the ad server even if the line item is failed to re-push.
- - KME-5163: Browser/ mobile carrier/ operating system targeting cannot be replaced by 'Null' in dfp when a user deletes them from KM side.
- - KME-5106: (Post DFP) Hover explaining the indicator color is displaying improperly
- - KME-4641: Specific Placement: User can't update the end date in the future of a placement that is in DFP to today's date
- - KME-4284: (Monthly Goals Placement): JS Error is thrown when carving out a Kraken LI item by selecting 'Every Month' option, after adding new months to placement’s flight date.
- - KME-5212: User is unable to select all line items together (select all checkbox is missing).
- - KME-5158: Upon editing Kraken carveout LIs, the editable part of the LI’s name is not displaying in the name field, however user can edit the name without observing his/her updates.
- - KME-5137: User isn't able to associate pub offer with creative when it has any type even if the placement has a single pub offer, moreover, JS error is thrown.
- - KME-5129: Green sync indicator is displaying to the off-network line item that indicate the LI is being pushed & synced with the ad server.
- - KME-5105: (Pre DFP) Status and its header are not aligned properly, extra space is displaying before status
- - KME-4542: Line item end date is being decremented by 2 when user duplicate it
- - KME-5159: Emails are not sent to Campaign Managers & Client Service Managers when Campaign is MediaPlanned nor for newly created or deleted placements
- - KME-5221: In placement export excel sheet, the downloaded excel sheet displays -> 'Agency Sales Leads' column label instead of 'Agency Sales Leads/Rev Share' label. 
  - KME-5223: Users other than campaign manager can view Bulk Apply Custom Targeting modal
-
-----
-
-CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
- - KME-4685: Reports: Specific graphs are not displaying even though it has graph data.
- - KME-5024: Successfully Pushed banner is being displayed when re-pushing failed line item to the ad server even if the line item is failed to re-push.
-
+ - KME-5204: Successfully Pushed banner is being displayed when re-pushing failed line item to the ad server even if the line item is failed to re-push.
+ - KME-4284: (Monthly Goals Placement): JS Error is thrown when carving out a Kraken LI item by selecting 'Every Month' option, after adding new months to placement’s flight date.
+ - KME-5106: (Post DFP) Hover explaining the indicator color is displaying improperly
+ - KME-5158: Upon editing Kraken carveout LIs, the editable part of the LI’s name is not displaying in the name field
+ - KME-5221: Placement downloaded export excel sheet does not display 'Agency Sales Leads/Rev Share' label.
 
 ----
 
 MOVING TO Future Sprint / Backlog:	
- - KME-5286: Changes on agency name are not reflected correctly in the User Companies table
- - KME-5109: Reese's Viewstream Video Quartile Tracker Issue | 5.8.18 (Investigation for Trackers)
+ - KME-5285: Bulk Editing Target : Flight dates are not getting sorted based on specific criteria.
 ```
 
 cc: @here
