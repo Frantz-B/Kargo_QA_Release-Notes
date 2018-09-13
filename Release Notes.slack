@@ -1,10 +1,10 @@
 Hi Team,
 
-Below is a list of bug/features released on *Wednesday, August 20* for *Kargo Marketplace*, *Version 3.66.0*, to production
+Below is a list of bug/features released on *Wednesday, August 29* for *Kargo Marketplace*, *Version 3.67.0*, to production
 
 *_Kargo Marketplace (KOPs)_*
 ```
-RELEASED TO PROD (Version 3.66.0):
+RELEASED TO PROD (Version 3.67.0):
  - KME-5153: Line Item Targeting - Create Day Parting Tool and push to DFP and Kraken
  - KME-5212: Add "select all" checkbox to Bulk Apply Targeting page
  - KME-4496: Copy and Paste for Audience Targeting Segments
@@ -24,7 +24,7 @@ RELEASED TO PROD (Version 3.66.0):
 
 ----
 
-MOVING TO NEXT SPRINT (Version 3.67.0):
+MOVING TO NEXT SPRINT (Version 3.68.0):
  - KME-5338: The user is able to paste the copied value from browser targeting field to mobile carrier field.
  - KME-5337: Bulk Targeting : The success toast displays wrong LIs number, when selecting specific LIs then sort and re-select LIs.
  - KME-5336: Pub offer LIs are being pushed to dfp with day-parting tool
