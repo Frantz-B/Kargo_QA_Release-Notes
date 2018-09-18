@@ -1,50 +1,11 @@
 Hi Team,
 
-Below is a list of bug/features released on *Wednesday, September 12* for *Kargo Marketplace*, *Version 3.68.0*, to production
+Below is a list of bug/features released on *Wednesday, September 18* for *Kargo Marketplace*, *Version 3.68.2*, to production
 
 *_Kargo Marketplace (KOPs)_*
 ```
-RELEASED TO PROD (Version 3.68.0):
- - KME-5339: Kraken Line Item - IN HUB support for Viewability Threshold & Sample Rate
- - KME-5318: Kraken Line Details - Display Viewability Threshold in Details Side Rail and Page
- - KME-5157: Sunset Daily Absent in Ad Server Campaign Report
- - KME-5111: Automatic k-user redirect from marketplace.kargo.com/reports
- - KME-5387: No validation exists for sample rate field so it can accept a value greater than 100.
- - KME-5386: Edit Kraken line items viewability optimization does not prompt re-push (repush button is not activated and sync indicator keeps displaying in green).
- - KME-5356: "Custom Site List" is displaying for campaign's site list
- - KME-5306: Publishers : On (Demand) tab, LI IDs are missing under (Line Items) table.
- - KME-5302: (Refresh Issue) Resume and Pause actions from campaign level are not reflected on action button status options while placement is expanded unless page is refreshed
- - KME-5106: (Post DFP) Hover explaining the indicator color is displaying improperly
-
-
-----
-
-MOVING TO NEXT SPRINT (Version 3.69.0):
- - KME-5391: LI ID is getting removed from LI’s name upon updating LI’s information.
- - KME-5297: Targeting tab: User is able to (paste) on (Target Audience) field while the vendor key is not selected.
- - KME-5158: Upon editing Kraken carveout LIs, the editable part of the LI’s name is not displaying in the name field.
- - KME-5406: (Viewability Sample Rate) & (Viewability Threshold) values are displaying in improper format under (LI Information) section for values between [55% - 58%].
- - KME-5397: (Upcoming) status displays for pushed placements (containing single LI) with Start flight date in the past.
- - KME-5338: The user is able to paste the copied value from browser targeting field to mobile carrier field.
- - KME-5325: Site List : (Submit) button will be enabled when user deselect the selected site list after re-searching a different site list name.
- - KME-5323: Edit placement's targeting/site list before and after submit does not display it in history
- - KME-5322: Refresh Issue(Targeting tab/ Creatives tab): Archiving a LI while on edit mode keeps the buttons enabled
-
-
-----
-
-
-CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
- - KME-5404: Creative tab is displaying in edit mode when user click on edit button then archive the line-item.
- - KME-5394: The "Save" button under "Targeting Tab" for Line Item become disabled after clicking on the edit line item from "Action" button
- - KME-5224: For monthly placements, EXTRA Kraken LIs are getting generated when adding new months to placement (for all the previously selected months).
-
-
-----
-
-
-MOVING TO Future Sprint / Backlog:	
- - KME-5345: Editing the site list from LI level generates Kraken LIs without the compatible property under it in Media Plan
+RELEASED TO PROD (Version 3.68.2):
+ - KME-5435: Integrations > Specific Publisher > "business terms": The user cannot add a "Revenue Share %" more than '1'
 ```
 
 cc: @here
