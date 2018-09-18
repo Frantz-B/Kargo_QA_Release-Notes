@@ -1,57 +1,50 @@
 Hi Team,
 
-Below is a list of bug/features released on *Wednesday, August 29* for *Kargo Marketplace*, *Version 3.67.0*, to production
+Below is a list of bug/features released on *Wednesday, September 12* for *Kargo Marketplace*, *Version 3.68.0*, to production
 
 *_Kargo Marketplace (KOPs)_*
 ```
-RELEASED TO PROD (Version 3.67.0):
- - KME-4956: Frontend Work: Line Item Site List - Allow Users to Bulk add or remove properties
- - KME-5344: Kraken is not auto generated when bulk adding a compatible property from the LI level
- - KME-5343: The auto-generated line-items are not being generated for the first placement when the campaign is being submitted.
- - KME-5341: Duplicating a LI with custom "Day and Time" then repushing the duplicate does not display that custom targeting on repush modal
- - KME-5333: The updates in day & time targeting are not properly formatted in the review to re-push modal (JSON body is not formatted (not readable for the user)).
- - KME-5330: Day Parting Reinherit - Highlight the day parting tool as running all day
- - KME-5326: Day Parting - Display changes in Review Modal
- - KME-5221: In placement export excel sheet, the downloaded excel sheet displays -> 'Agency Sales Leads' column label instead of 'Agency Sales Leads/Rev Share' label.
- - KME-5034: Troubleshoot why some campaigns fail to persist DFP_ID in KM after successful push
- - KME-4284: (Monthly Goals Placement): JS Error is thrown when carving out a Kraken LI item by selecting 'Every Month'
+RELEASED TO PROD (Version 3.68.0):
+ - KME-5339: Kraken Line Item - IN HUB support for Viewability Threshold & Sample Rate
+ - KME-5318: Kraken Line Details - Display Viewability Threshold in Details Side Rail and Page
+ - KME-5157: Sunset Daily Absent in Ad Server Campaign Report
+ - KME-5111: Automatic k-user redirect from marketplace.kargo.com/reports
+ - KME-5387: No validation exists for sample rate field so it can accept a value greater than 100.
+ - KME-5386: Edit Kraken line items viewability optimization does not prompt re-push (repush button is not activated and sync indicator keeps displaying in green).
+ - KME-5356: "Custom Site List" is displaying for campaign's site list
+ - KME-5306: Publishers : On (Demand) tab, LI IDs are missing under (Line Items) table.
+ - KME-5302: (Refresh Issue) Resume and Pause actions from campaign level are not reflected on action button status options while placement is expanded unless page is refreshed
+ - KME-5106: (Post DFP) Hover explaining the indicator color is displaying improperly
 
 
 ----
 
-MOVING TO NEXT SPRINT (Version 3.68.0):
- - KME-5280: Bulk Adding Properties- Autocreate KRAKEN line when a KRAKEN supported property is added to a site list
- - KME-5359: The bulk add and remove modal closes and the user is returned to the site list tab in save/view mode (not in edit mode).
- - KME-5357: Bulk Adding Properties: For Carveout LIs, changes on Site List properties are not reflecting immediately on Re-push review modal.
- - KME-5342: '0' value is displaying in 'Impressions' column instead of the real impression value for each placement.
- - KME-5340: Users other than CM can edit and "Save" Day & Time
+MOVING TO NEXT SPRINT (Version 3.69.0):
+ - KME-5391: LI ID is getting removed from LI’s name upon updating LI’s information.
+ - KME-5297: Targeting tab: User is able to (paste) on (Target Audience) field while the vendor key is not selected.
+ - KME-5158: Upon editing Kraken carveout LIs, the editable part of the LI’s name is not displaying in the name field.
+ - KME-5406: (Viewability Sample Rate) & (Viewability Threshold) values are displaying in improper format under (LI Information) section for values between [55% - 58%].
+ - KME-5397: (Upcoming) status displays for pushed placements (containing single LI) with Start flight date in the past.
  - KME-5338: The user is able to paste the copied value from browser targeting field to mobile carrier field.
  - KME-5325: Site List : (Submit) button will be enabled when user deselect the selected site list after re-searching a different site list name.
  - KME-5323: Edit placement's targeting/site list before and after submit does not display it in history
  - KME-5322: Refresh Issue(Targeting tab/ Creatives tab): Archiving a LI while on edit mode keeps the buttons enabled
- - KME-5306: Publishers : On (Demand) tab, LI IDs are missing under (Line Items) table.
- - KME-5302: (Refresh Issue) Resume and Pause actions from campaign level are not reflected on action button
- - KME-5300: Edit regular carveout line item's site list does not prompt repush
- - KME-5294: Improper data displaying for "History" on campaign overview page
- - KME-5284: Refresh Issue: "Edit" button is disabled after push for a LI in a post DFP campaign until page is refreshed
- - KME-5158: Upon editing Kraken carveout LIs, the editable part of the LI’s name is not displaying in the name field, however user can edit the name without observing his/her updates.
- - KME-5157: Sunset Daily Absent in Ad Server Campaign Report
- - KME-5106: (Post DFP) Hover explaining the indicator color is displaying improperly
+
 
 ----
 
 
 CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
- - KME-5223: Users other than campaign manager can view Bulk Apply Custom Targeting modal
- - KME-5137: User isn't able to associate pub offer with creative when it has any type even if the placement has a single pub offer
- - KME-5010: PubOffer LI’s status are ‘Paused’ even if they aren’t associated with creatives, when user ‘Paused’ LI’s from campaign level
+ - KME-5404: Creative tab is displaying in edit mode when user click on edit button then archive the line-item.
+ - KME-5394: The "Save" button under "Targeting Tab" for Line Item become disabled after clicking on the edit line item from "Action" button
+ - KME-5224: For monthly placements, EXTRA Kraken LIs are getting generated when adding new months to placement (for all the previously selected months).
+
 
 ----
 
 
 MOVING TO Future Sprint / Backlog:	
- - KME-5204: Successfully Pushed banner is being displayed when re-pushing failed line item to the ad server
- - KME-5337: Bulk Targeting : The success toast displays wrong LIs number
+ - KME-5345: Editing the site list from LI level generates Kraken LIs without the compatible property under it in Media Plan
 ```
 
 cc: @here
