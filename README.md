@@ -1,3 +1,4 @@
 # Kargo_QA_Release-Notes
 
-* will be modified soon
+* This is to help send reports
+* Also to track intel being sent
