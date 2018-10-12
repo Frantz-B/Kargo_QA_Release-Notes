@@ -48,6 +48,6 @@ CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
 MOVING TO Future Sprint / Backlog:	
  - KME-5345: Editing the site list from LI level generates Kraken LIs without the compatible property under it in Media Plan
  - KME-5294: Improper data displaying for "History" on campaign overview page
- - KME-5342: '0' value is displaying in 'Impressions' column instead of the real impression value for each placement.```
+ - KME-5342: 0 value is displaying in 'Impressions' column instead of the real impression value for each placement.```
 
 cc: @here
