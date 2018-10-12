@@ -1,53 +1,68 @@
 Hi Team,
 
-Below is a list of bug/features released on *Wednesday, September 26* for *Kargo Marketplace*, *Version 3.69.0*, to production
+Below is a list of bug/features released on *Thursday, Octomber 11* for *Kargo Marketplace*, *Version 3.70.0*, to production
 
 *_Kargo Marketplace (KOPs)_*
 ```
-RELEASED TO PROD (Version 3.69.0):
- - KME-5339: Kraken Line Item - IN HUB support for Viewability Threshold & Sample Rate	
- - KME-5157: Sunset Daily Absent in Ad Server Campaign Report
- - KME-5111: Automatic k-user redirect from marketplace.kargo.com/reports 				
- - KME-5387: No validation exists for sample rate field so it can accept a value greater than 100.	Actions
- - KME-5386: Edit Kraken line items viewability optimization does not prompt re-push (repush button is not activated and sync indicator keeps displaying in green).	
- - KME-5356: "Custom Site List" is displaying for campaign's site list	
- - KME-5351: Remove "Reports" from KM UI (Sunsetting Publytics + Deal Center)	
- - KME-5318: Kraken Line Details - Display Viewability Threshold in Details Side Rail and Page	
- - KME-5306: Publishers : On (Demand) tab, LI IDs are missing under (Line Items) table.	
- - KME-5302: (Refresh Issue) Resume and Pause actions from campaign level are not reflected on action button status options while placement is expanded unless page is refreshed	
- - KME-5180: Sunset Publytics 1.0	
- - KME-5106: (Post DFP) Hover explaining the indicator color is displaying improperly
+RELEASED TO PROD (Version 3.70.0):
+
+ - KME-5469: Deal Group - Display KPI information in overview
+ - KME-5468: Deal Group - Allow user to enter in KPI information
+ - KME-5467: Deals - Allow users to enter KPI Performance info
+ - KME-5454: Design - KM KPI information for Campaign and Deals
+ - KME-5449: Campaign - Allow users to enter KPI Performance info
+ - KME-5447: Campaign - Allow user to enter in KPI information
+ - KME-5427: Buffering Tool - Change the default buffer percentage to 5%
+ - KME-5398: Front End: Display MAS Modal when MAS segment selector is clicked
+ - KME-5452: Campaign - Display Campaign Alerts when KPI Performance Information is missing
+ - KME-5451: Campaign - Send email when Campaign complete to enter in KPI performance data
+ - KME-5450: Campaign - Display KPI information in overview
+ - KME-5420: Front End: Deals and Deal Groups - Allow users to Copy and Paste segments in Target input field
+ - KME-5400: Front End: Integrate the Modal with the component in the MAS Selector button
+ - KME-5155: Front End: Display MAS segment button when MAS is Selected as Audience Target Type
+ - KME-5496: User is unable to update (Campaign information, Billing Information or Other Information) for old campaigns and JS error is generated
+ - KME-5494: KPI information "Edit" button is enabled for archived deals
+ - KME-5479: specific Deals: Inheriting "Targeting" values from deal group does not remove OS/ Browser targeting from SSP UI
+ - KME-5464: Targeting – MAS modal : Adding same MAS segment twice (From modal & Manually) is causing issues with Audience targeting section, moreover JS errors are getting thrown upon performing any action to it.
+ - KME-5460: "Submit" button is enabled without entering any MAS targets values
+ - KME-5457: "MAS Targets" text should be removed from the MAS targeting modal and Modal Title should be fixed
+ - KME-5441: The duplicated line-item name is being repeated 2 times when the user updates it in duplication form.
 
 
 ----
 
-MOVING TO NEXT SPRINT (Version 3.70.0):
+MOVING TO NEXT SPRINT (Version 3.71.0):
+ - KME-5497: Placement table: All placements are being exported instead of only exporting placements within search result.
+ - KME-5493: The user is able to add the same value for the same vendor on both include/exclude.
+ - KME-5485: For KPI information some fields are missing on the left side rail
+ - KME-5484: Campaign Creation: The user is able to select the primary KPI & secondary KPI with the same value.
+ - KME-5475: KBR segments are not being excluded at segments table
+ - KME-5462: Users with deleted company do not display under users tab but can be selected as team members in campaign
+ - KME-5459: Add MAS Targets form: Type Filter is not clickable, the user is unable to open it & filter the data.
+ - KME-5445: In media plan: Placement rate type is not displaying as the selected one (it's displaying as CPM).
+ - KME-5440: Monthly goal sum to target text is displaying out of frame
+ - KME-5423: (Error saving Placement) pop-up displays when carveout from (Regular & Kraken) LI with (0 impressions), and JS error thrown on console.
  - KME-5406: (Viewability Sample Rate) & (Viewability Threshold) values are displaying in improper format under (LI Information) section for values between [55% - 58%].
  - KME-5397: (Upcoming) status displays for pushed placements (containing single LI) with Start flight date in the past.
  - KME-5395: In review-to-repush modal: "-" is displaying under 'Currently in ad server' for the line-items that pushed with selecting all days and times.
- - KME-5389: Backfill missing third party trackers
  - KME-5357: Bulk Adding Properties: For Carveout LIs, changes on Site List properties are not reflecting immediately on Re-push review modal.
  - KME-5158: Upon editing Kraken carveout LIs, the editable part of the LI’s name is not displaying in the name field, however user can edit the name without observing his/her updates.
+ - KME-4485: Specific Campaign > Media Plan Tab: Line Item 'Delete' icon is out of border.
+ - KME-2563: Global:Discussion: "PARTICIPANTS" names aren't attached in the discussion by default if user try to add multiple discussion .
 
 
 ----
 
 
 CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
- - KME-5404: Creative tab is displaying in edit mode when user click on edit button then archive the line-item.
- - KME-5394: The "Save" button under "Targeting Tab" for Line Item become disabled after clicking on the edit line item from "Action" button
- - KME-5385: Placeholder text gets cropped after save for Mobile carrier and browser section on targeting tab
- - KME-5364: Refresh Issue: Incorrect behavior for pushed and non pushed placement's action button upon archiving campaign
- - KME-5361: Bulk Adding Properties: By default, the list is not ordered by ascending dates under bulk modal.
- - KME-5224: For monthly placements, EXTRA Kraken LIs are getting generated when adding new months to placement (for all the previously selected months).
+ - KME-5487: Missing Arrow for "Show Less" and "Show More" for KPI section on the left side rail
+ - KME-5458: Text input below Added MAS Values header is enabled and doesn't have the text "No MAS Values Added" on it
 
 
 ----
 
 
 MOVING TO Future Sprint / Backlog:	
- - KME-5345: Editing the site list from LI level generates Kraken LIs without the compatible property under it in Media Plan
- - KME-5294: Improper data displaying for "History" on campaign overview page
- - KME-5342: 0 value is displaying in 'Impressions' column instead of the real impression value for each placement.```
+- KME-5455: Refresh-Issue: Clicking on 'Cancel' button displaying as the updates are being saved unless the user refreshes the page.```
 
 cc: @here
