@@ -1,11 +1,53 @@
 Hi Team,
 
-Below is a list of bug/features released on *Wednesday, September 18* for *Kargo Marketplace*, *Version 3.68.2*, to production
+Below is a list of bug/features released on *Wednesday, September 26* for *Kargo Marketplace*, *Version 3.69.0*, to production
 
 *_Kargo Marketplace (KOPs)_*
 ```
-RELEASED TO PROD (Version 3.68.2):
- - KME-5435: Integrations > Specific Publisher > "business terms": The user cannot add a "Revenue Share %" more than '1'
-```
+RELEASED TO PROD (Version 3.69.0):
+ - KME-5339: Kraken Line Item - IN HUB support for Viewability Threshold & Sample Rate	
+ - KME-5157: Sunset Daily Absent in Ad Server Campaign Report
+ - KME-5111: Automatic k-user redirect from marketplace.kargo.com/reports 				
+ - KME-5387: No validation exists for sample rate field so it can accept a value greater than 100.	Actions
+ - KME-5386: Edit Kraken line items viewability optimization does not prompt re-push (repush button is not activated and sync indicator keeps displaying in green).	
+ - KME-5356: "Custom Site List" is displaying for campaign's site list	
+ - KME-5351: Remove "Reports" from KM UI (Sunsetting Publytics + Deal Center)	
+ - KME-5318: Kraken Line Details - Display Viewability Threshold in Details Side Rail and Page	
+ - KME-5306: Publishers : On (Demand) tab, LI IDs are missing under (Line Items) table.	
+ - KME-5302: (Refresh Issue) Resume and Pause actions from campaign level are not reflected on action button status options while placement is expanded unless page is refreshed	
+ - KME-5180: Sunset Publytics 1.0	
+ - KME-5106: (Post DFP) Hover explaining the indicator color is displaying improperly
+
+
+----
+
+MOVING TO NEXT SPRINT (Version 3.70.0):
+ - KME-5406: (Viewability Sample Rate) & (Viewability Threshold) values are displaying in improper format under (LI Information) section for values between [55% - 58%].
+ - KME-5397: (Upcoming) status displays for pushed placements (containing single LI) with Start flight date in the past.
+ - KME-5395: In review-to-repush modal: "-" is displaying under 'Currently in ad server' for the line-items that pushed with selecting all days and times.
+ - KME-5389: Backfill missing third party trackers
+ - KME-5357: Bulk Adding Properties: For Carveout LIs, changes on Site List properties are not reflecting immediately on Re-push review modal.
+ - KME-5158: Upon editing Kraken carveout LIs, the editable part of the LI’s name is not displaying in the name field, however user can edit the name without observing his/her updates.
+
+
+----
+
+
+CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
+ - KME-5404: Creative tab is displaying in edit mode when user click on edit button then archive the line-item.
+ - KME-5394: The "Save" button under "Targeting Tab" for Line Item become disabled after clicking on the edit line item from "Action" button
+ - KME-5385: Placeholder text gets cropped after save for Mobile carrier and browser section on targeting tab
+ - KME-5364: Refresh Issue: Incorrect behavior for pushed and non pushed placement's action button upon archiving campaign
+ - KME-5361: Bulk Adding Properties: By default, the list is not ordered by ascending dates under bulk modal.
+ - KME-5224: For monthly placements, EXTRA Kraken LIs are getting generated when adding new months to placement (for all the previously selected months).
+
+
+----
+
+
+MOVING TO Future Sprint / Backlog:	
+ - KME-5345: Editing the site list from LI level generates Kraken LIs without the compatible property under it in Media Plan
+ - KME-5294: Improper data displaying for "History" on campaign overview page
+ - KME-5342: '0' value is displaying in 'Impressions' column instead of the real impression value for each placement.```
 
 cc: @here
