@@ -1,59 +1,57 @@
 Hi Team,
 
-Below is a list of bug/features released on *Thursday, October 24* for *Kargo Marketplace*, *Version 3.71.0*, to production
+Below is a list of bug/features released on *Thursday, November 12* for *Kargo Marketplace*, *Version 3.72.0*, to production
 
 *_Kargo Marketplace (KOPs)_*
 ```
-RELEASED TO PROD (Version 3.71.0):
+RELEASED TO PROD (Version 3.72.0):
 
- - KME-5526: The user is unable to push (PRIVATE AUCTION, PREFERRED FIXED RATE) deals with an error message if the deals contain any targeting value under targeting tab	
- - KME-5525: Campaign/Deal Group: "Achieved KPI radio buttons cannot be selected on edit mode	Actions
- - KME-5524: Deals: On creation page for Viewability Optimization tool by default the fields are disabled but the "OFF" radio button is not selected	
- - KME-5523: Multi JS errors are displaying when user opens campaign/deal groups information edit form.	
- - KME-5522: Campaigns/Deals: Mas Segement "Merkle" new filter option does not return any data when selected	
- - KME-5521: Deal group KPI fields reference "campaign"	
- - KME-5519: Trackers cannot be created on creative level through campaigns/Deals and JS error is thrown		
- - KME-5498: PG Deals - Ability to configure Viewability Threshold (Front End; dependent on Kraken team for backend work)	
- - KME-5495: Updated on KPI information is not reflected on left side rail section until page is refreshed	
- - KME-5485: For KPI information some fields are missing on the left side rail		
- - KME-5472: MAS Segement Selector - Add more options in filter	
- - KME-5470: Deal Group - Display Deal Group Alerts when KPI Performance Information is missing	
- - KME-5459: Add MAS Targets form: Type Filter is not clickable, the user is unable to open it & filter the data.	
- - KME-5445: In media plan: Placement rate type is not displaying as the selected one (it's displaying as CPM).	
- - KME-5440: Monthly goal sum to target text is displaying out of frame	
- - KME-5429: Site List Builder - Sort By Selected	
- - KME-5406: (Viewability Sample Rate) & (Viewability Threshold) values are displaying in improper format under (LI Information) section for values between [55% - 58%].	
- - KME-5357: Bulk Adding Properties: For Carveout LIs, changes on Site List properties are not reflecting immediately on Re-push review modal.	
- - KME-5179: EntryID deprecation - Creatives	
- - KME-4485: Specific Campaign > Media Plan Tab: Line Item 'Delete' icon is out of border.	
- - KME-2563: Global:Discussion: "PARTICIPANTS" names aren't attached in the discussion by default if user try to add multiple discussion .	
- - KME-5536: Kraken LI is being pushed to DFP with active status (active=true) within Kraken API.	
- - KME-5517: Refresh issue: Error banner for missing site list on placement level keeps displaying after removing all properties then re-inheriting	
- - KME-5500: PG Deals Details - Display Viewability Threshold in Deals detail side rail	
- - KME-5471: DEAL GROUP - Send email when Campaign complete to enter in KPI performance data
+ - KME-5514: Deprecate Creation of External Line Items
+ - KME-5540: Deal - Display alert when pre and post bidding settings are missing for NEW deals
+ - KME-5539: Campaign - Display alert when pre and post bidding settings are missing
+ - KME-5538: Campaign - Pre and Post Bid Setting for Campaign edit and creation mode
+ - KME-5528: Remove AdTag Errors from KM (frontend)
+ - KME-5516: Deal - Pre and Post bid Setting for DEALS on edit and creation mode
+ - KME-5414: EntryID deprecation - Properties
+ - KME-5413: EntryID deprecation - Publishers
+ - KME-1775: Removal of entry_id columns from the refactored database tables
+ - KME-5589: Deals with "Run of Network with Exclusions" or "Site List" selected sites does not push to KSSP
+ - KME-5580: Carve-Out line items do not display under demand tab
+ - KME-5579: Associated campaigns are not displaying under activity tab and JS error is thrown
+ - KME-5566: Properties: formats are not getting approved in KSSP for "Middle" ad slot if there was a "Native" format is selected in it
+ - KME-5565: Clicking on History tab for PG deals is not working more over js error is thrown
 
 
 ----
 
 MOVING TO NEXT SPRINT (Version 3.72.0):
+ - KME-5603: Missing pre and post bidding settings alert is displaying for created deals other than Programmatic Guaranteed deals
+ - KME-5602: No notifications are received once the user add new invoiced invoice to the placement
+ - KME-5601: PG Deals : "PRE-BID"/"POST-BID" check boxes stay selected after updating MEASUREMENT VENDOR value
+ - KME-5593: Impressions and clicks value is not displaying in creative table under performance tab moreover spread sheet is empty
+ - KME-5587: Ad Tag Errors Tab is still displaying on creative level through publishers, campaigns and deal groups
+ - KME-5574: Auto carved out(Pub offer and Off-network) Li's are generated if user add li's/placement after submitting campaign to media plan
+ - KME-5570: Campaign alert will not go away after the setting of (Pre & Post Bid) have been filled in.
  - KME-5529: Deal Group Alerts for missing KPI Performance Information stops displaying when deal is added without filling the KPI info
  - KME-5527: Deal Group/Campaigns: "Export" button for "Errors" tab on creatives level is not working and clicking the tab throws JS errors
- - KME-5520: Trackers: Under Tracker's page, (Export) button is not working, and JS error is thrown on console.
- - KME-5518: When a user sorts the site list by "Selected" the displayed publishers and properties that are selected and added to the site list *are not* sorted by NAME in alphabetical order.
- - KME-5497: Placement table: All placements are being exported instead of only exporting placements within search result.
  - KME-5493: The user is able to add the same value for the same vendor on both include/exclude.
  - KME-5475: KBR segments are not being excluded at segments table
- - KME-5462: Users with deleted company do not display under users tab but can be selected as team members in campaign
  - KME-5423: (Error saving Placement) pop-up displays when carveout from (Regular & Kraken) LI with (0 impressions), and JS error thrown on console.
- - KME-5397: (Upcoming) status displays for pushed placements (containing single LI) with Start flight date in the past.
- - KME-5395: In review-to-repush modal: "-" is displaying under 'Currently in ad server' for the line-items that pushed with selecting all days and times.
- - KME-4641: Specific Placement: User can't update the end date in the future of a placement that is in DFP to today's date
+ - KME-5397: (Upcoming) status displays for pushed placements (containing single LI) with Start flight da te in the past.
 
 
 ----
 
-
 CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
- - KME-5517: Refresh issue: Error banner for missing site list on placement level keeps displaying after removing all properties then re-inheriting```
+ - KME-3569: Publisher tab: A JS error is generated when opening any user details page and "Send offer" value is always "NO" and cannot be update to "YES"
+ - KME-5484: Campaign Creation: The user is able to select the primary KPI & secondary KPI with the same value.
+ 
+ 
+ ----
+ 
+ MOVING TO Future Sprint / Backlog:
+ - KME-5591: When user sorts the site list by "Selected" then  by NAME in alphabetical order except for properties that start with the letter "X"
+ - KME-5497: Placement table: All placements are being exported instead of only exporting placements within search result.
+ - KME-5158: Upon editing Kraken carveout LIs, the editable part of the LI’s name is not displaying in the name field.```
 
 cc: @here
