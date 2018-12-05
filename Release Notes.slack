@@ -1,57 +1,35 @@
 Hi Team,
 
-Below is a list of bug/features released on *Thursday, November 12* for *Kargo Marketplace*, *Version 3.72.0*, to production
+Below is a list of bug/features released on *Tuesday, December 04* for *Kargo Marketplace*, *Version 3.74.0*, to production
 
 *_Kargo Marketplace (KOPs)_*
-```
-RELEASED TO PROD (Version 3.72.0):
-
- - KME-5514: Deprecate Creation of External Line Items
- - KME-5540: Deal - Display alert when pre and post bidding settings are missing for NEW deals
- - KME-5539: Campaign - Display alert when pre and post bidding settings are missing
- - KME-5538: Campaign - Pre and Post Bid Setting for Campaign edit and creation mode
- - KME-5528: Remove AdTag Errors from KM (frontend)
- - KME-5516: Deal - Pre and Post bid Setting for DEALS on edit and creation mode
- - KME-5414: EntryID deprecation - Properties
- - KME-5413: EntryID deprecation - Publishers
- - KME-1775: Removal of entry_id columns from the refactored database tables
- - KME-5589: Deals with "Run of Network with Exclusions" or "Site List" selected sites does not push to KSSP
- - KME-5580: Carve-Out line items do not display under demand tab
- - KME-5579: Associated campaigns are not displaying under activity tab and JS error is thrown
- - KME-5566: Properties: formats are not getting approved in KSSP for "Middle" ad slot if there was a "Native" format is selected in it
- - KME-5565: Clicking on History tab for PG deals is not working more over js error is thrown
+`RELEASED TO PROD (Version 3.74.0):`
+> • KME-5595: Deals: Support Uploading CSV for Zip Code Targeting for PG Deals
+> • KME-5576: Deals: Support Zip Code Targeting for PG Deals
+> • KME-5415: EntryID deprecation - Ad slots
+> • KME-5603: Missing pre and post bidding settings alert is displaying for created deals other than Programmatic Guaranteed deals
+> • KME-5601: PG Deals : "PRE-BID"/"POST-BID" check boxes stay selected after updating MEASUREMENT VENDOR value
+> • KME-5570: Campaign alert will not go away after the setting of (Pre & Post Bid) have been filled in.
+> • KME-5397: (Upcoming) status displays for pushed placements (containing single LI) with Start flight date in the past.
 
 
 ----
 
-MOVING TO NEXT SPRINT (Version 3.72.0):
- - KME-5603: Missing pre and post bidding settings alert is displaying for created deals other than Programmatic Guaranteed deals
- - KME-5602: No notifications are received once the user add new invoiced invoice to the placement
- - KME-5601: PG Deals : "PRE-BID"/"POST-BID" check boxes stay selected after updating MEASUREMENT VENDOR value
- - KME-5593: Impressions and clicks value is not displaying in creative table under performance tab moreover spread sheet is empty
- - KME-5587: Ad Tag Errors Tab is still displaying on creative level through publishers, campaigns and deal groups
- - KME-5574: Auto carved out(Pub offer and Off-network) Li's are generated if user add li's/placement after submitting campaign to media plan
- - KME-5570: Campaign alert will not go away after the setting of (Pre & Post Bid) have been filled in.
- - KME-5529: Deal Group Alerts for missing KPI Performance Information stops displaying when deal is added without filling the KPI info
- - KME-5527: Deal Group/Campaigns: "Export" button for "Errors" tab on creatives level is not working and clicking the tab throws JS errors
- - KME-5493: The user is able to add the same value for the same vendor on both include/exclude.
- - KME-5475: KBR segments are not being excluded at segments table
- - KME-5423: (Error saving Placement) pop-up displays when carveout from (Regular & Kraken) LI with (0 impressions), and JS error thrown on console.
- - KME-5397: (Upcoming) status displays for pushed placements (containing single LI) with Start flight da te in the past.
+`MOVING TO NEXT SPRINT (Version 3.75.0):`
+> • KME-5493: The user is able to add the same value for the same vendor on both include/exclude.
+> • KME-5475: KBR segments are not being excluded at segments table
+> • KME-5423: (Error saving Placement) pop-up displays when carveout from (Regular & Kraken) LI with (0 impressions), and JS error thrown on console.
+> • KME-5587: Ad Tag Errors Tab is still displaying on creative level through publishers, campaigns and deal groups
+> • KME-5529: Deal Group Alerts for missing KPI Performance Information stops displaying when deal is added without filling the KPI info
+> • KME-5258: Refresh Issue: Number of discussions for property & ad slot pages is not updated immediately unless user refreshes the page.
+> • KME-5610: "Select Site List" drawer is opened when the user attempts to apply any change to deal group.
+> • KME-5606: Progress dialog is stuck when user attempts to delete a placement that has billed invoices.
+> • KME-4706: Invoicing - Default date page picker to the previous month
 
 
 ----
 
-CLOSED - WON'T FIX TICKET (Approved by Scrum Team):
- - KME-3569: Publisher tab: A JS error is generated when opening any user details page and "Send offer" value is always "NO" and cannot be update to "YES"
- - KME-5484: Campaign Creation: The user is able to select the primary KPI & secondary KPI with the same value.
- 
- 
- ----
- 
- MOVING TO Future Sprint / Backlog:
- - KME-5591: When user sorts the site list by "Selected" then  by NAME in alphabetical order except for properties that start with the letter "X"
- - KME-5497: Placement table: All placements are being exported instead of only exporting placements within search result.
- - KME-5158: Upon editing Kraken carveout LIs, the editable part of the LI’s name is not displaying in the name field.```
+`CLOSED - WON'T FIX TICKET (Approved by Scrum Team):`
+> • KME-5602: No notifications are received once the user add new invoiced invoice to the placement
 
 cc: @here
