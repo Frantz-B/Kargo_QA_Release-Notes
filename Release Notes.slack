@@ -1,35 +1,39 @@
-Hi Team,
+### PATCH RELEASE
+* PATCH version 3.75.0 was released on Wednesday, December 19, 2018 at 07:30am EST
 
-Below is a list of bug/features released on *Tuesday, December 04* for *Kargo Marketplace*, *Version 3.74.0*, to production
+### STORIES
+* [KME-5643](https://kargo1.atlassian.net/browse/KME-5643): Kraken Line: Uploading CSV for Zip Code Targeting for Kraken Line Items     (PR - [#6329](https://github.com/KargoGlobal/ControlPanel/pull/6329))
+* [KME-5638](https://kargo1.atlassian.net/browse/KME-5638): Kraken Lines: Support Zip Code Targeting for Kraken Line Items      (PR - [#6329](https://github.com/KargoGlobal/ControlPanel/pull/6329))
+* [KME-5655](https://kargo1.atlassian.net/browse/KME-5655): Deals - Add Pre and Post big setting at to All Deals        (PR - [#6321](https://github.com/KargoGlobal/ControlPanel/pull/6321))
+* [KME-4392](https://kargo1.atlassian.net/browse/KME-4392): Re-factor Modal directives Phase 2      (PR - [#6309](https://github.com/KargoGlobal/ControlPanel/pull/6309))
+* [KME-5675](https://kargo1.atlassian.net/browse/KME-5675): Add Migration to update Zip Code Targeting Payload For Deals        (PR - [#6326](https://github.com/KargoGlobal/ControlPanel/pull/6326))
+* [KME-5674](https://kargo1.atlassian.net/browse/KME-5674): Zip Code Targeting UI Enhancements and Payload Updates      (PR - [#6330](https://github.com/KargoGlobal/ControlPanel/pull/6330))
+* [KME-5654](https://kargo1.atlassian.net/browse/KME-5654): Remove Goal Notes from Campaigns        (PR - [#6318](https://github.com/KargoGlobal/ControlPanel/pull/6318))
+* [KME-5650](https://kargo1.atlassian.net/browse/KME-5650): PG Deals - Support Mobile Carrier Targeting     (PR - [#6328](https://github.com/KargoGlobal/ControlPanel/pull/6328))
+* [KME-5639](https://kargo1.atlassian.net/browse/KME-5639): Removing Custom iFrame Helper URL Function from KM      (PR - [#6312](https://github.com/KargoGlobal/ControlPanel/pull/6312))
+* [KME-4706](https://kargo1.atlassian.net/browse/KME-4706): Invoicing - Default date page picker to the previous month      (PR - [#6319](https://github.com/KargoGlobal/ControlPanel/pull/6319))
+* [KME-5683](https://kargo1.atlassian.net/browse/KME-5683): KM-ALERTS API to support on demand opportunity discovery.       (PR - [#6333](https://github.com/KargoGlobal/ControlPanel/pull/6333))
+* [KME-5660](https://kargo1.atlassian.net/browse/KME-5660): Implement property details API      (PR - [#6321](https://github.com/KargoGlobal/ControlPanel/pull/6321))
 
-*_Kargo Marketplace (KOPs)_*
-`RELEASED TO PROD (Version 3.74.0):`
-> • KME-5595: Deals: Support Uploading CSV for Zip Code Targeting for PG Deals
-> • KME-5576: Deals: Support Zip Code Targeting for PG Deals
-> • KME-5415: EntryID deprecation - Ad slots
-> • KME-5603: Missing pre and post bidding settings alert is displaying for created deals other than Programmatic Guaranteed deals
-> • KME-5601: PG Deals : "PRE-BID"/"POST-BID" check boxes stay selected after updating MEASUREMENT VENDOR value
-> • KME-5570: Campaign alert will not go away after the setting of (Pre & Post Bid) have been filled in.
-> • KME-5397: (Upcoming) status displays for pushed placements (containing single LI) with Start flight date in the past.
+### BUGS
+* [KME-5684](https://kargo1.atlassian.net/browse/KME-5684): User is unable to add new placement moreover JS error is thrown.        (PR - [#3dda43d0](https://github.com/KargoGlobal/ControlPanel/pull/3dda43d0))
+* [KME-5676](https://kargo1.atlassian.net/browse/KME-5676): Zip Codes to KRAKEN for KRAKEN lines does not display in papertrail, postman and repush modal.      (PR - [#6322](https://github.com/KargoGlobal/ControlPanel/pull/6322))
+* [KME-5667](https://kargo1.atlassian.net/browse/KME-5667): Creatives: Export button is not working under "Trackers" tab and an error is thrown     (PR - [#6334](https://github.com/KargoGlobal/ControlPanel/pull/6334))
+* [KME-5657](https://kargo1.atlassian.net/browse/KME-5657): KM Property IDs All Showing as N/A in Property Export       (PR - [#6316](https://github.com/KargoGlobal/ControlPanel/pull/6316))
+* [KME-5651](https://kargo1.atlassian.net/browse/KME-5651): Line item name is not getting highlighted upon hovering over it     (PR - [#6317](https://github.com/KargoGlobal/ControlPanel/pull/6317))
+* [KME-5475](https://kargo1.atlassian.net/browse/KME-5475): KBR segments are not being excluded at segments table       (PR - [#6239](https://github.com/KargoGlobal/ControlPanel/pull/6239))
+* [KME-5258](https://kargo1.atlassian.net/browse/KME-5258): Refresh Issue: Number of discussions for property & ad slot pages is not updated immediately unless user refreshes the page.        (PR - [#6327](https://github.com/KargoGlobal/ControlPanel/pull/6327))
+* [SE-5278](https://kargo1.atlassian.net/browse/SE-5278): Unable to save CSS fix under Middle Banner Format        (PR - [#6325](https://github.com/KargoGlobal/ControlPanel/pull/6325))
+* [KAT-1306](https://kargo1.atlassian.net/browse/KAT-1306): The status of the config setting cannot be updated "VAST Video" format, and a JS error is generated     (PR - [#6232](https://github.com/KargoGlobal/ControlPanel/pull/6232))
 
 
-----
-
-`MOVING TO NEXT SPRINT (Version 3.75.0):`
-> • KME-5493: The user is able to add the same value for the same vendor on both include/exclude.
-> • KME-5475: KBR segments are not being excluded at segments table
-> • KME-5423: (Error saving Placement) pop-up displays when carveout from (Regular & Kraken) LI with (0 impressions), and JS error thrown on console.
-> • KME-5587: Ad Tag Errors Tab is still displaying on creative level through publishers, campaigns and deal groups
-> • KME-5529: Deal Group Alerts for missing KPI Performance Information stops displaying when deal is added without filling the KPI info
-> • KME-5258: Refresh Issue: Number of discussions for property & ad slot pages is not updated immediately unless user refreshes the page.
-> • KME-5610: "Select Site List" drawer is opened when the user attempts to apply any change to deal group.
-> • KME-5606: Progress dialog is stuck when user attempts to delete a placement that has billed invoices.
-> • KME-4706: Invoicing - Default date page picker to the previous month
 
 
-----
 
-`CLOSED - WON'T FIX TICKET (Approved by Scrum Team):`
-> • KME-5602: No notifications are received once the user add new invoiced invoice to the placement
 
-cc: @here
+### PATCH RELEASE
+* PATCH version 3.75.1 was released on Thursday, December 20, 2018 at 11:45am EST
+
+### BUGS
+* [KME-5613](https://kargo1.atlassian.net/browse/KME-5613): Kraken LI that has been added before approving the campaign has status (active=true)        (PR - [#6336](https://github.com/KargoGlobal/ControlPanel/pull/6336))
+* [KME-5676](https://kargo1.atlassian.net/browse/KME-5676): Ad Tag Errors Tab is still displaying on the ad slot level.      (PR - [#6335](https://github.com/KargoGlobal/ControlPanel/pull/6335))
