@@ -1,39 +1,20 @@
 Hi Team,
 
-Below is a list of bug/features released on *Wednesday, January 16* for *Kargo Marketplace*, *Version 3.77.0*, to production
+Below is a list of bug/features released for *`PATCH`* on *Friday, January 17* for *Kargo Marketplace*, *Version 3.77.1*, to production
 
 *_Kargo Marketplace (KOPs)_*
-`RELEASED TO PROD (Version 3.77.0):`
-> • KME-5705: Implement KM flag that helps notify an automated process of closed loop report
-> • KME-5686: Zip Code Targeting UI Enhancements: Disabling Zip-code Field when US selected
-> • KME-5712: DFP Reports API Optimization (Refactoring)
-
-> • KME-5423: (Error saving Placement) pop-up displays when carveout from (Regular & Kraken) LI with (0 impressions), and JS error thrown on console.
-> • KME-5587: Ad Tag Errors Tab is still displaying on the creatives tab in deal group creatives level.
-> • KME-5606: Progress dialog is stuck when user attempts to delete a placement that has billed invoices.
-> • KME-5646: Entering repeated values in zip code fields is not accepted but keeps displaying in edit mode after save and edit
-> • KME-5685: If there are already discussions: Number of existing discussions is displaying as '0' unless the user opens the discussion drawer then close it.
-> • KME-5691: Refresh issue - Hyper Targeting values not updated immediately
-> • KME-5696: The updates on campaign manager field are not being pushed to the ad server.
-> • KME-5697: 'US zip code' field accept letters and special characters.
-> • KME-5699: User is able to add geo-targeting & US zip code when adding the US zip code first then select the united states as geo-targeting.
-> • KME-5700: For Pushed Placement: An error message is displaying upon updating placement's contract rate.
-> • KME-5706: Refresh issue - Deal id is not displaying immediately
-
-----
-
-`MOVING TO NEXT SPRINT (Version 3.78.0):`
-> • KME-5217: Refresh-Issue: When user select LIs to be bulked from any LI, the updates on bulked LI will not be reflected directly unless user refreshes the page.
-> • KME-5719: Placeholder is omitted when the user clicks in a blank area after entering an incorrect value
-> • KME-5713: 'Missing KPI performance' warning message is displaying when a deal is added with an 'unlimited end date'.
-> • KME-5714: Ad Tag Errors Tab is still displaying on the creatives tab in deal group creatives level.
-> • KME-5694: Publishers: The user is able to "un-archive" the property under an archived publisher
-
-
-----
-
-`CLOSED - WON'T FIX TICKET (Approved by Scrum Team):`
-> • KME-5665: On submit to review warning pop-up number of deals added after push does not reflect the number of deal to be submitted
-> • KME-5693: When KPI Performance Information is missing deal group alerts is not displaying.
+`RELEASED TO PROD (Version 3.77.1):`
+> • KME-5692: Zip code Validation UI enchancements
+> • KME-5709: Zip code Targeting Enhancements - Backend
+> • KME-5710: Zip Code Validation - Backend
 
 cc: @here
+
+
+
+*`Please Note`* 
+From now on, per the above tickets that were release,  *New Zip Code Rules* are as follows:
+> • When ever upload a file that contains Zip Codes, the 1st column must have a variation of the words "zip codes" in it 
+> • KM will now let you know if your uploaded file has any issues with the zip codes in it
+> • KM will add a `0` to any 4 digit zip code found within your uploaded file
+> • There's more strict validation when typing in a zip-code, KM will only allow numbers & register a sequence of 5 digits only
