@@ -1,20 +1,26 @@
 Hi Team,
 
-Below is a list of bug/features released for *`PATCH`* on *Friday, January 17* for *Kargo Marketplace*, *Version 3.77.1*, to production
+Below is a list of bug/features released on *Wednesday, January 30* for *Kargo Marketplace*, *Version 3.78.0*, to Production
 
 *_Kargo Marketplace (KOPs)_*
-`RELEASED TO PROD (Version 3.77.1):`
-> • KME-5692: Zip code Validation UI enchancements
-> • KME-5709: Zip code Targeting Enhancements - Backend
-> • KME-5710: Zip Code Validation - Backend
+`RELEASED TO PROD (Version 3.78.0):`
+> • KME-5726: Warning popo for Zip codes
+> • KME-5217: Refresh-Issue: When user select LIs to be bulked from any LI, the updates on bulked LI will not be reflected immediately
+> • KME-5713: 'Missing KPI performance' warning message is displaying when a deal is added with an 'unlimited end date'.
+> • KME-5714: Ad Tag Errors Tab is still displaying on the creatives tab in deal group creatives level.
+> • KME-5716: Discussions e-mail
+> • KME-5719: Placeholder is omitted when the user clicks in a blank area after entering an incorrect value
+> • KME-5728: Closed loop reporting forced selection
+> • KME-5732: ZIP CODE exclude values still show up after enter United States into Exclude textbox
+
+
+`CLOSED - WON'T FIX TICKET (Approved by Scrum Team):`
+> • KME-5652: Ad Slots: SSP ID is missing in ad slots export file (only in Test envs)
+> • KME-5745: JS error is displaying in a deal group page when creating any action (Add new deal, submit, …) with no functional issue.
 
 cc: @here
 
 
 
-*`Please Note`* 
-From now on, per the above tickets that were release,  *New Zip Code Rules* are as follows:
-> • When ever upload a file that contains Zip Codes, the 1st column must have a variation of the words "zip codes" in it 
-> • KM will now let you know if your uploaded file has any issues with the zip codes in it
-> • KM will add a `0` to any 4 digit zip code found within your uploaded file
-> • There's more strict validation when typing in a zip-code, KM will only allow numbers & register a sequence of 5 digits only
+:fire:*`Please Note`* :fire:
+Highlight:  Replying to Discussions from email has been Fixed. (Krystle Blume and others has been looking forward to this)
