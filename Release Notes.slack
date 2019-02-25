@@ -1,26 +1,34 @@
 Hi Team,
 
-Below is a list of bug/features released on *Wednesday, January 30* for *Kargo Marketplace*, *Version 3.78.0*, to Production
+Below is a list of bug/features released on *Wednesday, Feburary 20* for *Kargo Marketplace*, *Version 3.79.0*, to Production
 
 *_Kargo Marketplace (KOPs)_*
-`RELEASED TO PROD (Version 3.78.0):`
-> • KME-5726: Warning popo for Zip codes
-> • KME-5217: Refresh-Issue: When user select LIs to be bulked from any LI, the updates on bulked LI will not be reflected immediately
-> • KME-5713: 'Missing KPI performance' warning message is displaying when a deal is added with an 'unlimited end date'.
-> • KME-5714: Ad Tag Errors Tab is still displaying on the creatives tab in deal group creatives level.
-> • KME-5716: Discussions e-mail
-> • KME-5719: Placeholder is omitted when the user clicks in a blank area after entering an incorrect value
-> • KME-5728: Closed loop reporting forced selection
-> • KME-5732: ZIP CODE exclude values still show up after enter United States into Exclude textbox
+`RELEASED TO PROD (Version 3.79.0):`
+> • KME-5688: Remove/Exclude KBR segments from MAS segments table
+> • KME-5701: Add Support for Viewability Targeting to all PMP Deals - Create/Edit Form
+> • KME-5717: Minor enhancement for line item DFP timestamp to show EST after time label
+> • KME-5722: Add Support for Viewability Targeting to all PMP Deals - Deals Table Filter
+> • KME-5723: Add Support for Viewability Targeting to all PMP Deals - Deal Details Display of Optimization Settings
+> • KME-5746: Add Support for Viewability Targeting to all PMP Deals - Create/Edit Form (In-Hub Work)
+> • KME-5578: User is unable to Add or Remove Properties at "Bulk Add or Remove Properties" drawer moreover JS error is thrown
+> • KME-5694: UI Issue: "un-archive" option is display for Archived Publishers
+> • KME-5747: User is unable to unarchive property while the publisher is unarchived
+> • KME-5748: Archived filter is not working fine for the following options (All/Yes) and JS error is thrown
+> • KME-5756: Adding a new deal group is not being redirected to the deal group overview page.
+> • KME-5757: No deal groups/deals are displaying in deal group/deals landing page (main page).
 
+
+`Moved to Next Sprint (Version 3.80.0):`
+> • KME-5754: 'Delivery Pacing' value is not being updated after submission when the user tries to edit it in duplication form.
+> • KME-5769: PMP Deals can't be set to Active in Kraken service via KM UI.
+> • KME-5770: PMP Deals that are pushed to KRAKEN do not have Priority = 6, (within Kraken)
 
 `CLOSED - WON'T FIX TICKET (Approved by Scrum Team):`
-> • KME-5652: Ad Slots: SSP ID is missing in ad slots export file (only in Test envs)
-> • KME-5745: JS error is displaying in a deal group page when creating any action (Add new deal, submit, …) with no functional issue.
+> • KME-5721: "CAMPAIGNS OVER TIMEFRAME" is missing in the newly created properties
 
 cc: @here
 
 
 
 :fire:*`Please Note`* :fire:
-Highlight:  Replying to Discussions from email has been Fixed. (Krystle Blume and others has been looking forward to this)
+_Highlight_:  Even though New Deals can now be pushed to Kraken, Please follow up with @Puneet or Colin to verify if it should be used or expected use case!
