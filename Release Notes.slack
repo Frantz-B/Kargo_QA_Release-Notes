@@ -1,34 +1,22 @@
 Hi Team,
 
-Below is a list of bug/features released on *Wednesday, Feburary 20* for *Kargo Marketplace*, *Version 3.79.0*, to Production
+Below is a list of bug/features released on *Wednesday, Feburary 28* for *Kargo Marketplace*, *Version 3.80.0*, to Production
 
 *_Kargo Marketplace (KOPs)_*
-`RELEASED TO PROD (Version 3.79.0):`
+`RELEASED TO PROD (Version 3.80.0):`
 > • KME-5688: Remove/Exclude KBR segments from MAS segments table
-> • KME-5701: Add Support for Viewability Targeting to all PMP Deals - Create/Edit Form
-> • KME-5717: Minor enhancement for line item DFP timestamp to show EST after time label
-> • KME-5722: Add Support for Viewability Targeting to all PMP Deals - Deals Table Filter
-> • KME-5723: Add Support for Viewability Targeting to all PMP Deals - Deal Details Display of Optimization Settings
-> • KME-5746: Add Support for Viewability Targeting to all PMP Deals - Create/Edit Form (In-Hub Work)
-> • KME-5578: User is unable to Add or Remove Properties at "Bulk Add or Remove Properties" drawer moreover JS error is thrown
-> • KME-5694: UI Issue: "un-archive" option is display for Archived Publishers
-> • KME-5747: User is unable to unarchive property while the publisher is unarchived
-> • KME-5748: Archived filter is not working fine for the following options (All/Yes) and JS error is thrown
-> • KME-5756: Adding a new deal group is not being redirected to the deal group overview page.
-> • KME-5757: No deal groups/deals are displaying in deal group/deals landing page (main page).
-
-
-`Moved to Next Sprint (Version 3.80.0):`
+> • KME-5724: Show "Closed Loop Report Type" in the Campaign Left Rail
+> • KME-5749: Warning pop for Zip codes is displaying to the regular line-item when it is bulked from Kraken LI have a zip code.
 > • KME-5754: 'Delivery Pacing' value is not being updated after submission when the user tries to edit it in duplication form.
-> • KME-5769: PMP Deals can't be set to Active in Kraken service via KM UI.
-> • KME-5770: PMP Deals that are pushed to KRAKEN do not have Priority = 6, (within Kraken)
+> • KME-5759: Non-PG Deal Viewability values not appearing in payload sent to IN-Hub.
+> • KME-5760: Non-PG Deals are not being pushed into Kraken.
+> • KME-5761: The user is able to un-archive the property ("Action" button is not disabled) if the parent (publisher) is archived.
+> • KME-5765: PG-Deals are not being activated from KM side moreover JS error is thrown.
+> • KME-5767: Line item suffix name should not allow spaces nor new line control characters.
 
-`CLOSED - WON'T FIX TICKET (Approved by Scrum Team):`
-> • KME-5721: "CAMPAIGNS OVER TIMEFRAME" is missing in the newly created properties
+
+`Moved to Next Sprint (Version 3.81.0):`
+> • KME-5754: "DATE MODIFIED" column at "Review Line Item Changes" drawer is showing the last updated time 
+
 
 cc: @here
-
-
-
-:fire:*`Please Note`* :fire:
-_Highlight_:  Even though New Deals can now be pushed to Kraken, Please follow up with @Puneet or Colin to verify if it should be used or expected use case!
