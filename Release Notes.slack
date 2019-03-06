@@ -1,22 +1,12 @@
 Hi Team,
 
-Below is a list of bug/features released on *Wednesday, Feburary 28* for *Kargo Marketplace*, *Version 3.80.0*, to Production
+Below is a list of bug/features that was `PATCHED`, *Today, March 06* for *Kargo Marketplace*, *Version 3.80.3*, to Production
 
 *_Kargo Marketplace (KOPs)_*
-`RELEASED TO PROD (Version 3.80.0):`
-> • KME-5688: Remove/Exclude KBR segments from MAS segments table
-> • KME-5724: Show "Closed Loop Report Type" in the Campaign Left Rail
-> • KME-5749: Warning pop for Zip codes is displaying to the regular line-item when it is bulked from Kraken LI have a zip code.
-> • KME-5754: 'Delivery Pacing' value is not being updated after submission when the user tries to edit it in duplication form.
-> • KME-5759: Non-PG Deal Viewability values not appearing in payload sent to IN-Hub.
-> • KME-5760: Non-PG Deals are not being pushed into Kraken.
-> • KME-5761: The user is able to un-archive the property ("Action" button is not disabled) if the parent (publisher) is archived.
-> • KME-5765: PG-Deals are not being activated from KM side moreover JS error is thrown.
-> • KME-5767: Line item suffix name should not allow spaces nor new line control characters.
-
-
-`Moved to Next Sprint (Version 3.81.0):`
-> • KME-5754: "DATE MODIFIED" column at "Review Line Item Changes" drawer is showing the last updated time 
-
+`PATCHED TO PROD (Version 3.80.3):`
+> • KME-5771: Push any PMP deal that has Viewability optimization added to it in KM to Kraken
 
 cc: @here
+
+:fire:*`Please Note`* :fire:
+_Highlight_:  Now old non-pg deals can be pushed to Kraken as long as viewability settings are updated again for that deal
