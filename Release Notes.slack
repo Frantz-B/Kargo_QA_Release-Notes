@@ -1,12 +1,23 @@
 Hi Team,
 
-Below is a list of bug/features that was `PATCHED`, *Today, March 06* for *Kargo Marketplace*, *Version 3.80.3*, to Production
+Below is a list of features/fixed-bugs released on *Wednesday, March 13* for *Kargo Marketplace*, *Version 3.81.0*, to Production
 
 *_Kargo Marketplace (KOPs)_*
-`PATCHED TO PROD (Version 3.80.3):`
-> • KME-5771: Push any PMP deal that has Viewability optimization added to it in KM to Kraken
+*`BUILD TO PROD (Version 3.81.0):`*
+> • `KME-5725`: Kraken API - Only update config fields that were updated in KM - Line-items - Part 1
+> • `KME-5771`: Push any PMP deal that has Viewability optimization added to it in KM to Kraken
+> • `KME-5772`: Prevent a full overwrite of Deals when pushing to Kraken - Part 1
+> • `KME-5774`: Block users from deleting agencies
+> • `KME-5777`: Campaign Creation - Add Salesforce ID & MAKE REQUIRED
+> • `KME-5778`: Campaign Details - Move Salesforce ID into Campaign Details section
+> • `KME-5779`: Deal Group Creation - Make Salesforce ID REQUIRED
+> • `KME-5802`: Tool Tip for Salesforce ID Requiring 18 Characters
+-
+> • `KME-5748`: Archived filter is not working fine for the following options (All/Yes) and JS error is thrown
+> • `KME-5755`: KM | TypeError
+> • `KME-5784`: Non-PG /PG deals are not being pushed to Kraken side even if the viewability optimization is ON.
+> • `KME-5792`: When turning off viewability, viewability optimization values are still displaying in Kraken side.
+> • `KME-5793`: The viewability is not showing up in In-Hub payload when the user turned it on after it is turned off.
+> • `KME-5805`: Error Message is displaying when the user tries to update pg-deal data.
 
 cc: @here
-
-:fire:*`Please Note`* :fire:
-_Highlight_:  Now old non-pg deals can be pushed to Kraken as long as viewability settings are updated again for that deal
