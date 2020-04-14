@@ -18,7 +18,7 @@ pullRequestRow.forEach( pullRequest => {
     let prText = pullRequest.childNodes[1].innerText;
     //let project_id = prText.split('] ')[0].toUpperCase().replace(/[\[\]']+/g, ''); // plucking just Jira ticket_id
     let dm_id = prText.match(/((dm.[0-9]{1,}))/g); // plucking just Jira ticket_id
-    let ticketTitle = prText.split('] ')[1];
+    let ticketTitle = prText.replace(/((\[?((dm|DM)*[ -]*\d+)\]*)[ -:]*)/g);
     let pr_id = pullRequest.childNodes[1].href.split('pull/')[1];
 
     //gitHubString += `* [[${project_id}]]`;
