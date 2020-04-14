@@ -16,27 +16,25 @@ let bug = [];
 
 pullRequestRow.forEach( pullRequest => {
     let prText = pullRequest.childNodes[1].innerText;
-    //let project_id = prText.split('] ')[0].toUpperCase().replace(/[\[\]']+/g, ''); // plucking just Jira ticket_id
-    let dm_id = prText.match(/((dm.[0-9]{1,}))/g); // plucking just Jira ticket_id
-    let ticketTitle = prText.replace(/((\[?((dm|DM)*[ -]*\d+)\]*)[ -:]*)/g);
+    let project_id = prText.match(/[a-zA-Z]+\s?.\s?[0-9]{1,}/g); // plucking just Jira ticket_id
+    let ticketTitle = prText.replace(/((\[?(([a-zA-Z]+)*[ -]*\d+)\]*)[ -:]*)/g, '');
     let pr_id = pullRequest.childNodes[1].href.split('pull/')[1];
 
-    //gitHubString += `* [[${project_id}]]`;
-    //gitHubString += `(${kargoLink + project_id})`
+    gitHubString += '*';
+    slackString += '> •';
+
     project_id.forEach(id => {
         id = id.toUpperCase();
-        gitHubString += `* [[${id}]]`;
+        gitHubString += ` [[${id}]]`;
         gitHubString += `(${kargoLink + id})`;
-        slackString += `> • [${id}]`;
+        slackString += ` [${id}]`;
     });
     gitHubString += ' - ';
     gitHubString += ticketTitle;
     gitHubString += `    (PR - #${pr_id})`;
-    //gitHubString += '\n'
 
     slackString += ' - ';
     slackString += ticketTitle;
-    //slackString += '\n'
 
     if (pullRequest.childNodes[5].innerText.includes('bug')) {
         bugGit.push(gitHubString);
