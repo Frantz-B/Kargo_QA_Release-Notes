@@ -4,8 +4,9 @@ let releaseVersion = 'v0.20.0'; // expecting string to contain number format '#.
 
 let gitHubBaseUrl = "https://api.github.com/repos";
 let jiraBaseUrl = "https://kargo1.atlassian.net/browse";
-let token = "token 14e8f15d802b67e7c39bef5810cd6875a222e598";
-let apiResponse;
+let milestoneSearchEndpoint = '/milestones?state=all&per_page=100';
+let releaseSearchEndpoint = '/releases?per_page=100';
+let token = "token 14e8f15d802b67e7c39bef5810cd6875a222e598"; // my token
 let projectList =[ 
     {
         shortName: 'KM',
@@ -54,55 +55,44 @@ let release = getReleaseType();
 let project = projectList.find(({ shortName }) => shortName === projectKey.toUpperCase());
 // let endPoint = '/issues?milestone=30&state=closed&per_page=100';
 
-let requestOptions = async (endPoint) => {
+let requestOptions = async (endPoint, methodType, methodBody) => {
+    let apiResponse;
     let myHeaders = new Headers();
     myHeaders.append("Authorization", token);
+
+    let options = {
+        method: methodType,
+        headers: myHeaders,
+        body: methodBody
+    };
     let url = `${gitHubBaseUrl}/KargoGlobal/${project.githubName}`;
     if(endPoint) url += endPoint;
-
-    await fetch(url, {headers: myHeaders})
+    await fetch(url, options)
         .then(response => response.json())
         .then(result => {apiResponse = result})  //figure out what to do
         .catch(error => {apiResponse = error});
-    //return apiResponse;
+    return apiResponse;
 };
 
-let milestoneSearchEndpoint = '/milestones?state=all&per_page=200';
-requestOptions(milestoneSearchEndpoint);
-
-// Pause after request 
+let milestoneSearchResults = await requestOptions(milestoneSearchEndpoint);
 let getMileStoneNumber = () => { // Created this incase milestone was close earlier than suppose
-    let milestone = apiResponse.filter(milestoneElement => milestoneElement.title.includes(release.version))[0];
+    let milestone = milestoneSearchResults.filter(milestoneElement => milestoneElement.title.includes(release.version))[0];
     return milestone.number;
 };
-
-
 let milestoneNumber = getMileStoneNumber();
-let milestonePrsUrl = `/issues?milestone=${milestoneNumber}&state=closed&&per_page=100`; 
-requestOptions(milestonePrsUrl);
+let milestonePrsUrl = `/issues?milestone=${milestoneNumber}&state=closed&per_page=100`;
+let collectionOfPRs = await requestOptions(milestonePrsUrl);
 
-// Pause after request
-let collectionOfPRs = apiResponse;
-
-
-/*
- *  get release, then get time for pusblished at
- *  then manipulate date
- *  then build strings
- */
-
-let releaseSearchEndpoint = '/releases';
-requestOptions(releaseSearchEndpoint);
-//Pause for a second
-
+let releaseId;
+let releaseSearchResponse = await requestOptions(releaseSearchEndpoint);
 let getReleaseDate = () => { // Created this incase milestone was close earlier than suppose
-    let releaseTag = apiResponse.filter(releaseTagElement => releaseTagElement.tag_name.includes(release.version))[0];
+    let releaseTag = releaseSearchResponse.filter(releaseTagElement => releaseTagElement.tag_name.includes(release.version))[0];
+    releaseId = `${releaseSearchEndpoint}/${releaseTag.id}`;
     return releaseTag.published_at;
 };
 let releaseDate = getReleaseDate();
 let gitReleaseDate = `${moment(releaseDate).format('MMMM DD, YYYY [at] h:mma')} EST`;
 let slackReleaseDate = moment(releaseDate).format('MM/DD');
-
 
 let gitHubString = '';
 let slackString = '';
@@ -160,16 +150,25 @@ collectionOfPRs.forEach( pullRequest => {
     }
 });
 
-let gitMarkdown = `### ${release.type.toUpperCase()} RELEASE\n` + `* Build version ${release.version} on ${gitReleaseDate}\n\n`
-let slackMarkdown = `${release.icon} *${project.longName} Release v${release.version}* ${release.icon} \n${project.jiraShortName}: (released Today ${slackReleaseDate})\n`
-if (storiesGit.length) gitMarkdown += '### STORIES\n' + storiesGit.join('\n');
-if (bugGit.length) gitMarkdown += '\n\n### BUGS\n' + bugGit.join('\n');
-if (dvGit.length) gitMarkdown += '\n\n### Work In Progress\n' + dvGit.join('\n');
-if (stories.length) slackMarkdown += '_*Stories:*_\n' + stories.join('\n');
-if (bug.length) slackMarkdown += '\n\n_*Bugs:*_\n' + bug.join('\n');
-if (dv.length) slackMarkdown += '\n\n_*WIP:*_\n' + dv.join('\n');
-console.log(slackMarkdown);
-console.log(gitMarkdown);
+let gitMarkDown = `### ${release.type.toUpperCase()} RELEASE\n` + `* Build version ${release.version} on ${gitReleaseDate}\n\n`
+let gitApiMarkDown = `### ${release.type.toUpperCase()} RELEASE\\n` + `* Build version ${release.version} on ${gitReleaseDate}\\n\\n`
+let slackMarkDown = `${release.icon} *${project.longName} Release v${release.version}* ${release.icon} \n${project.jiraShortName}: (released Today ${slackReleaseDate})\n`
+if (storiesGit.length) gitMarkDown += '### STORIES\n' + storiesGit.join('\n');
+if (storiesGit.length) gitApiMarkDown += '### STORIES\\n' + storiesGit.join('\\n');
+if (bugGit.length) gitMarkDown += '\n\n### BUGS\n' + bugGit.join('\n');
+if (bugGit.length) gitApiMarkDown += '\\n\\n### BUGS\\n' + bugGit.join('\\n');
+if (dvGit.length) gitMarkDown += '\n\n### Work In Progress\n' + dvGit.join('\n');
+if (dvGit.length) gitApiMarkDown += '\\n\\n### Work In Progress\\n' + dvGit.join('\\n');
+if (stories.length) slackMarkDown += '_*Stories:*_\n' + stories.join('\n');
+if (bug.length) slackMarkDown += '\n\n_*Bugs:*_\n' + bug.join('\n');
+if (dv.length) slackMarkDown += '\n\n_*WIP:*_\n' + dv.join('\n');
+console.log(slackMarkDown);
+console.log(gitMarkDown);
+
+// Once 'gitMarkDown' looks good, uncomment the next line
+let updateGitHub = async () => {
+    await requestOptions(releaseId, 'PATCH', `{"body":"${gitApiMarkDown}"}`);
+};
 
 
 // enter below 1st for moments.js - helps with formating dates
