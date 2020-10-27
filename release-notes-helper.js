@@ -7,52 +7,46 @@ let jiraBaseUrl = "https://kargo1.atlassian.net/browse/";
 let milestoneSearchEndpoint = '/milestones?state=all&per_page=100';
 let releaseSearchEndpoint = '/releases?per_page=100';
 let token = "token 14e8f15d802b67e7c39bef5810cd6875a222e598"; // my token
-let projectList =[ 
-    {
+let projectList = { 
+    KM: {
         shortName: 'KM',
         githubName: 'ControlPanel',
         longName: 'Kargo Marketplace',
         jiraShortName: 'KM'
     },
-    {
-        shortName: 'DM',
+    DM: {
         githubName: 'deal-manager',
         longName: 'Deal-Manager',
         jiraShortName: 'DM'
     },
-    {
-        shortName: 'KBR',
+    KBR: {
         githubName: 'kbr-builder',
         longName: 'Kargo Brand Study Builder',
         jiraShortName: 'KBR'
     },
-    {
-        shortName: 'DEAL-SYNC',
+    "DEAL-SYNC": {
         githubName: 'deal-sync',
         longName: 'Deal-Sync Service for Deal Manager',
         jiraShortName: 'DM'
     },
-    {
-        shortName: 'KAM',
+    KAM: {
         githubName: 'kam',
         longName: 'Altice `Backend`',
         jiraShortName: 'ALT'
     },
-    {
-        shortName: 'KAM-UI',
+    "KAM-UI": {
         githubName: 'kam-ui',
         longName: 'Altice `Frontend`',
         jiraShortName: 'ALT'
     },
-    {
-        shortName: 'IN',
+    IN: {
         githubName: 'integrations-hub',
         longName: 'Integrations Hub',
         jiraShortName: 'IN'
     }
-];
+};
 
-let getReleaseType = () => {
+function getReleaseType() {
     let releaseProject = {};
     let releaseNumberArray = releaseVersion.match(/\d+/g); // Drops text from string
     releaseProject.version = releaseNumberArray.join('.'); // Yields number in format '#.#.#'
@@ -70,9 +64,9 @@ let getReleaseType = () => {
     return releaseProject;
 };
 let release = getReleaseType();
-let project = projectList.find(({ shortName }) => shortName === projectKey.toUpperCase());
+let project = projectList[projectKey.toUpperCase()];
 
-let requestOptions = async (endPoint, methodType, methodBody) => {
+async function requestOptions(endPoint, methodType, methodBody) {
     let apiResponse;
     let myHeaders = new Headers();
     myHeaders.append("Authorization", token);
@@ -92,7 +86,7 @@ let requestOptions = async (endPoint, methodType, methodBody) => {
 };
 
 let milestoneSearchResults = await requestOptions(milestoneSearchEndpoint);
-let getMileStoneNumber = () => { // Created this incase milestone was close earlier than suppose
+function getMileStoneNumber() { // Created this incase milestone was close earlier than suppose
     let milestone = milestoneSearchResults.filter(milestoneElement => milestoneElement.title.includes(release.version))[0];
     return milestone.number;
 };
@@ -102,7 +96,7 @@ let collectionOfPRs = await requestOptions(milestonePrsUrl);
 
 let releaseId;
 let releaseSearchResponse = await requestOptions(releaseSearchEndpoint);
-let getReleaseDate = () => { // Created this incase milestone was close earlier than suppose
+function getReleaseDate() { // Created this incase milestone was close earlier than suppose
     let releaseTag = releaseSearchResponse.filter(releaseTagElement => releaseTagElement.tag_name.includes(release.version))[0];
     releaseId = `${releaseSearchEndpoint}/${releaseTag.id}`;
     return releaseTag.published_at;
@@ -183,7 +177,7 @@ console.log(slackMarkDown);
 console.log(gitMarkDown);
 
 // Once 'gitMarkDown' looks good, uncomment the next line
-let updateGitHub = async () => {
+async function updateGitHub() {
     await requestOptions(releaseId.replace('?per_page=100',''), 'PATCH', `{"body":"${gitApiMarkDown}"}`);
 };
 
