@@ -29,6 +29,11 @@ let projectList = {
         longName: 'Deal-Sync Service for Deal Manager',
         jiraShortName: 'DM'
     },
+    "SYNC-DIFF": {
+        githubName: 'sync-diff',
+        longName: 'Sync-Diff Service for Kargo Marketplace',
+        jiraShortName: 'KM'
+    },
     KAM: {
         githubName: 'kam',
         longName: 'Altice `Backend`',
@@ -144,6 +149,7 @@ collectionOfPRs.forEach( pullRequest => {
     slackString += ' - ';
     slackString += ticketTitle.replace(/['"]+/g, ':');
 
+    if (!pullRequest.labels[0]) throw new Error('There are PR(s) missing labels')
     if (pullRequest.labels[0].name === 'WIP') {
         dvGit.push(gitHubString);
         dv.push(slackString);
