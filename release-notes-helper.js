@@ -88,6 +88,7 @@ async function requestOptions(endPoint, methodType, methodBody) {
 let milestoneSearchResults = await requestOptions(milestoneSearchEndpoint);
 function getMileStoneNumber() { // Created this incase milestone was close earlier than suppose
     let milestone = milestoneSearchResults.filter(milestoneElement => milestoneElement.title.includes(release.version))[0];
+    if (!milestone) throw new Error('Milestone Not found in 1st 100-set');
     return milestone.number;
 };
 let milestoneNumber = getMileStoneNumber();
@@ -98,6 +99,7 @@ let releaseId;
 let releaseSearchResponse = await requestOptions(releaseSearchEndpoint);
 function getReleaseDate() { // Created this incase milestone was close earlier than suppose
     let releaseTag = releaseSearchResponse.filter(releaseTagElement => releaseTagElement.tag_name.includes(release.version))[0];
+    if (!releaseTag) throw new Error('Release Tag Not found in 1st 100-set');
     releaseId = `${releaseSearchEndpoint}/${releaseTag.id}`;
     return releaseTag.published_at;
 };
