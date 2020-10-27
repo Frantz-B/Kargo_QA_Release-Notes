@@ -1,9 +1,9 @@
 // Pls modify projectKey and releaseVersion variables
-let projectKey = 'kam';
-let releaseVersion = 'v0.20.0'; // expecting string to contain number format '#.#.#'
+let projectKey = 'km';
+let releaseVersion = 'v3.106.2'; // expecting string to contain number format '#.#.#'
 
 let gitHubBaseUrl = "https://api.github.com/repos";
-let jiraBaseUrl = "https://kargo1.atlassian.net/browse";
+let jiraBaseUrl = "https://kargo1.atlassian.net/browse/";
 let milestoneSearchEndpoint = '/milestones?state=all&per_page=100';
 let releaseSearchEndpoint = '/releases?per_page=100';
 let token = "token 14e8f15d802b67e7c39bef5810cd6875a222e598"; // my token
@@ -21,6 +21,18 @@ let projectList =[
         jiraShortName: 'DM'
     },
     {
+        shortName: 'KBR',
+        githubName: 'kbr-builder',
+        longName: 'Kargo Brand Study Builder',
+        jiraShortName: 'KBR'
+    },
+    {
+        shortName: 'DEAL-SYNC',
+        githubName: 'deal-sync',
+        longName: 'Deal-Sync Service for Deal Manager',
+        jiraShortName: 'DM'
+    },
+    {
         shortName: 'KAM',
         githubName: 'kam',
         longName: 'Altice `Backend`',
@@ -31,6 +43,12 @@ let projectList =[
         githubName: 'kam-ui',
         longName: 'Altice `Frontend`',
         jiraShortName: 'ALT'
+    },
+    {
+        shortName: 'IN',
+        githubName: 'integrations-hub',
+        longName: 'Integrations Hub',
+        jiraShortName: 'IN'
     }
 ];
 
@@ -53,7 +71,6 @@ let getReleaseType = () => {
 };
 let release = getReleaseType();
 let project = projectList.find(({ shortName }) => shortName === projectKey.toUpperCase());
-// let endPoint = '/issues?milestone=30&state=closed&per_page=100';
 
 let requestOptions = async (endPoint, methodType, methodBody) => {
     let apiResponse;
@@ -126,10 +143,10 @@ collectionOfPRs.forEach( pullRequest => {
     }
 
     gitHubString += ' - ';
-    gitHubString += ticketTitle;
+    gitHubString += ticketTitle.replace(/['"]+/g, ':');
     gitHubString += `    (PR - #${pr_id})`;
     slackString += ' - ';
-    slackString += ticketTitle;
+    slackString += ticketTitle.replace(/['"]+/g, ':');
 
     if (pullRequest.labels[0].name === 'WIP') {
         dvGit.push(gitHubString);
@@ -167,7 +184,7 @@ console.log(gitMarkDown);
 
 // Once 'gitMarkDown' looks good, uncomment the next line
 let updateGitHub = async () => {
-    await requestOptions(releaseId, 'PATCH', `{"body":"${gitApiMarkDown}"}`);
+    await requestOptions(releaseId.replace('?per_page=100',''), 'PATCH', `{"body":"${gitApiMarkDown}"}`);
 };
 
 
