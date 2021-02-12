@@ -1,6 +1,6 @@
 // Pls modify projectKey and releaseVersion variables
 let projectKey = 'km';
-let releaseVersion = 'v3.106.2'; // expecting string to contain number format '#.#.#'
+let releaseVersion = 'v3.111.0'; // expecting string to contain number format '#.#.#'
 
 let gitHubBaseUrl = "https://api.github.com/repos";
 let jiraBaseUrl = "https://kargo1.atlassian.net/browse/";
@@ -104,7 +104,7 @@ let releaseId;
 let releaseSearchResponse = await requestOptions(releaseSearchEndpoint);
 function getReleaseDate() { // Created this incase milestone was close earlier than suppose
     let releaseTag = releaseSearchResponse.filter(releaseTagElement => releaseTagElement.tag_name.includes(release.version))[0];
-    if (!releaseTag) throw new Error('Release Tag Not found in 1st 100-set');
+    if (!releaseTag) throw new Error('Release Tag Not found in 1st 100-set or Tag needs to be Released');
     releaseId = `${releaseSearchEndpoint}/${releaseTag.id}`;
     return releaseTag.published_at;
 };
@@ -174,13 +174,20 @@ let gitApiMarkDown = `### ${release.type.toUpperCase()} RELEASE\\n` + `* Build v
 let slackMarkDown = `${release.icon} *${project.longName} Release v${release.version}* ${release.icon} \n${project.jiraShortName}: (released Today ${slackReleaseDate})\n`
 if (storiesGit.length) gitMarkDown += '### STORIES\n' + storiesGit.join('\n');
 if (storiesGit.length) gitApiMarkDown += '### STORIES\\n' + storiesGit.join('\\n');
-if (bugGit.length) gitMarkDown += '\n\n### BUGS\n' + bugGit.join('\n');
-if (bugGit.length) gitApiMarkDown += '\\n\\n### BUGS\\n' + bugGit.join('\\n');
-if (dvGit.length) gitMarkDown += '\n\n### Work In Progress\n' + dvGit.join('\n');
-if (dvGit.length) gitApiMarkDown += '\\n\\n### Work In Progress\\n' + dvGit.join('\\n');
+if (storiesGit.length) gitMarkDown += '\n\n';
+if (storiesGit.length) gitApiMarkDown += '\\n\\n';
+if (bugGit.length) gitMarkDown += '### BUGS\n' + bugGit.join('\n');
+if (bugGit.length) gitApiMarkDown += '### BUGS\\n' + bugGit.join('\\n');
+if (bugGit.length) gitMarkDown += '\n\n';
+if (bugGit.length) gitApiMarkDown += '\\n\\n';
+if (dvGit.length) gitMarkDown += '### Work In Progress\n' + dvGit.join('\n');
+if (dvGit.length) gitApiMarkDown += '### Work In Progress\\n' + dvGit.join('\\n');
 if (stories.length) slackMarkDown += '_*Stories:*_\n' + stories.join('\n');
-if (bug.length) slackMarkDown += '\n\n_*Bugs:*_\n' + bug.join('\n');
-if (dv.length) slackMarkDown += '\n\n_*WIP:*_\n' + dv.join('\n');
+if (stories.length) slackMarkDown += '\n\n'
+if (bug.length) slackMarkDown += '_*Bugs:*_\n' + bug.join('\n');
+if (bug.length && dv.length) slackMarkDown += '\n\n'
+if (dv.length) slackMarkDown += '_*WIP:*_\n' + dv.join('\n');
+slackMarkDown += `\n\n:lock_with_ink_pen: - https://github.com/KargoGlobal/${project.githubName}/releases/tag/v${release.version}`
 console.log(slackMarkDown);
 console.log(gitMarkDown);
 
