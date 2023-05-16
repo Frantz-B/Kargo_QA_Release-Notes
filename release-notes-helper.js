@@ -1,6 +1,6 @@
 // Pls modify projectKey and releaseVersion variables
-let projectKey = 'km';
-let releaseVersion = 'v3.111.0'; // expecting string to contain number format '#.#.#'
+let projectKey = 'kam-ui';
+let releaseVersion = 'v0.20.0'; // expecting string to contain number format '#.#.#'
 
 let gitHubBaseUrl = "https://api.github.com/repos";
 let jiraBaseUrl = "https://kargo1.atlassian.net/browse/";
@@ -164,8 +164,7 @@ collectionOfPRs.forEach( pullRequest => {
         dv.push(slackString);
         gitHubString = '';
         slackString = '';
-    } 
-    if (pullRequest.labels[0].name === 'bug') {
+    } else if (pullRequest.labels[0].name === 'bug') {
         bugGit.push(gitHubString);
         bug.push(slackString);
         gitHubString = '';
