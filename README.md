@@ -1,12 +1,28 @@
-# Kargo_QA_Release-Notes Helper
+# ⚡ Kargo QA Release Notes Generator ⚡
 
-* This is to help send reports
-* Also to track intel being sent
+* Allows you to generate beautiful Release Notes for your GitHub repositories
+  * Allows you to push the Release Notes directly to GitHub
+  * Allows you to copy Release Notes generated, for Slack
+
+## ⚠️ - Prerequisites:
+* Make sure to grab your `GitHub API Key`
+* Make sure there is a **Milestone** in your repo that has Release Version Number in its Name
+  * Make sure **Milestone** contains PRs that will be Released
+  * Make sure each PR has a **Label**; _(bug, enhancement, WIP)_
+* Make sure there a **Release**, in the Releases section of your repo, that contains **same** Release Version Number as **Milestone**
+
+## 🏹 - Getting Started:
+### Navigate to: ⛲ https://frantz-b.github.io/Kargo_QA_Release-Notes/ ⛲
+  * Enter your `GitHub API Key` in top right corner
+  * Select Project you want to do a Release for
+  * Enter Release Version number _(that matches Milestone and Release Tag)_
+  * Click on Generate Release Notes button
+  * :tada: Release Notes are generated for GitHub and Slack 🎉
 
 ----
-## Finally Automated! :fire:
+## ✍🏾 - Special Thanks to: 
+This was Finally Automated! :fire:, awhile back thanks to:
+* [Wadah](github.com/dawah-wadah)
+* [Ankit](github.com/akpankit)
 
-So I'm diving into the world of JS and with the help of Ankit & Wadah, I was able to move forward with automating this length process.
-
-- New file added: `release-notes-helper.js`
-    - This is expected to be executed when MileStone page is in view
+Before automating this process, it would take a few hours to grab jira links, PR links, and format everything even with using fancy VSCode shortcuts.
