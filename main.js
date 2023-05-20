@@ -139,11 +139,19 @@ function showProjectNames(projectObject) {
         listItemElement.appendChild(spanProjectLongNameElement);
         projectListDropDownElement.appendChild(listItemElement);
     });
+
+    //Adding functionality so that User can click on a any project
+    document.querySelectorAll('li').forEach( projectListItemElement => {
+        projectListItemElement.onclick = () => {
+            let selectedProjectName = projectListItemElement.querySelector('.name');
+            projectNameInputElement.value = selectedProjectName.textContent;
+            projectListDropDownElement.innerHTML = '';
+        }
+    });
 };
 
 showProjectNames(projectList);
 
-// will add onclick event later for list items 
 projectNameInputElement.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         let selectedProject = projectListDropDownElement.querySelector('li');
