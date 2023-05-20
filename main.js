@@ -156,6 +156,12 @@ projectNameInputElement.addEventListener('keydown', (event) => {
     }
 });
 
+releaseVersionInputElement.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+       generateNotes();
+    }
+});
+
 function grabApiKey() {
     localStorage.setItem('gitApiKey', apiKeyElement.value);
     gitAccessElement.innerHTML = "";
