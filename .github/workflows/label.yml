@@ -2,7 +2,7 @@ name: Label PR with keywords
 
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened, edited, closed]
 
 jobs:
   label-bug:
@@ -46,3 +46,16 @@ jobs:
           repo: ${{ github.event.repository.name }}
           issue_number: ${{ github.event.pull_request.number }}
           labels: invalid
+
+  remove-milestone:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if PR is closed and not merged
+        if: github.event.pull_request.merged == false && github.event.pull_request.state == 'closed'
+        uses: octokit/request-action@v2.x
+        id: milestone
+        with:
+          route: DELETE /repos/:owner/:repo/issues/:issue_number/milestone
+          owner: ${{ github.event.repository.owner.login }}
+          repo: ${{ github.event.repository.name }}
+          issue_number: ${{ github.event.pull_request.number }}
