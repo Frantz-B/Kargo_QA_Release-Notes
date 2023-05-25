@@ -18,6 +18,8 @@ jobs:
           repo: ${{ github.event.repository.name }}
           issue_number: ${{ github.event.pull_request.number }}
           labels: bug
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
   label-enhancement:
     runs-on: ubuntu-latest
@@ -32,6 +34,8 @@ jobs:
           repo: ${{ github.event.repository.name }}
           issue_number: ${{ github.event.pull_request.number }}
           labels: enhancement
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
   label-invalid:
     runs-on: ubuntu-latest
@@ -46,6 +50,8 @@ jobs:
           repo: ${{ github.event.repository.name }}
           issue_number: ${{ github.event.pull_request.number }}
           labels: invalid
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
   remove-milestone:
     runs-on: ubuntu-latest
@@ -59,3 +65,5 @@ jobs:
           owner: ${{ github.event.repository.owner.login }}
           repo: ${{ github.event.repository.name }}
           issue_number: ${{ github.event.pull_request.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
