@@ -1,0 +1,61 @@
+name: Label PR with keywords
+
+on:
+  pull_request:
+    types: [opened, edited, closed]
+
+jobs:
+  label-bug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for 'bug' in PR title
+        if: contains(github.event.pull_request.title, 'bug')
+        uses: octokit/request-action@v2.x
+        id: label
+        with:
+          route: POST /repos/:owner/:repo/issues/:issue_number/labels
+          owner: ${{ github.event.repository.owner.login }}
+          repo: ${{ github.event.repository.name }}
+          issue_number: ${{ github.event.pull_request.number }}
+          labels: bug
+
+  label-enhancement:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for 'feature' in PR title
+        if: contains(github.event.pull_request.title, 'feat')
+        uses: octokit/request-action@v2.x
+        id: label
+        with:
+          route: POST /repos/:owner/:repo/issues/:issue_number/labels
+          owner: ${{ github.event.repository.owner.login }}
+          repo: ${{ github.event.repository.name }}
+          issue_number: ${{ github.event.pull_request.number }}
+          labels: enhancement
+
+  label-invalid:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if PR is closed and not merged
+        if: github.event.pull_request.merged == false && github.event.pull_request.state == 'closed'
+        uses: octokit/request-action@v2.x
+        id: label
+        with:
+          route: POST /repos/:owner/:repo/issues/:issue_number/labels
+          owner: ${{ github.event.repository.owner.login }}
+          repo: ${{ github.event.repository.name }}
+          issue_number: ${{ github.event.pull_request.number }}
+          labels: invalid
+
+  remove-milestone:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if PR is closed and not merged
+        if: github.event.pull_request.merged == false && github.event.pull_request.state == 'closed'
+        uses: octokit/request-action@v2.x
+        id: milestone
+        with:
+          route: DELETE /repos/:owner/:repo/issues/:issue_number/milestone
+          owner: ${{ github.event.repository.owner.login }}
+          repo: ${{ github.event.repository.name }}
+          issue_number: ${{ github.event.pull_request.number }}
