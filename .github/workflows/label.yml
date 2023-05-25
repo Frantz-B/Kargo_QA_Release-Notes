@@ -1,0 +1,20 @@
+name: Label PR with keywords
+
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  label-bug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for 'bug' in PR title
+        if: contains(github.event.pull_request.title, 'bug')
+        uses: octokit/request-action@v2.x
+        id: label
+        with:
+          route: POST /repos/:owner/:repo/issues/:issue_number/labels
+          owner: ${{ github.event.repository.owner.login }}
+          repo: ${{ github.event.repository.name }}
+          issue_number: ${{ github.event.pull_request.number }}
+          labels: bug
