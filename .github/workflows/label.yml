@@ -1,17 +1,19 @@
-name: Label PR with keywords
+name: Add Labels to PR
 
 on:
   pull_request:
-    types: [opened, edited, closed]
+    types:
+      - opened
+      - synchronize
 
 jobs:
-  label-bug:
+  add-labels:
     runs-on: ubuntu-latest
     steps:
       - name: Check for 'bug' in PR title
         if: contains(github.event.pull_request.title, 'bug')
         uses: octokit/request-action@v2.x
-        id: label
+        id: bug-label
         with:
           route: POST /repos/:owner/:repo/issues/:issue_number/labels
           owner: ${{ github.event.repository.owner.login }}
@@ -21,13 +23,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
-  label-enhancement:
-    runs-on: ubuntu-latest
-    steps:
       - name: Check for 'feature' in PR title
         if: contains(github.event.pull_request.title, 'feat')
         uses: octokit/request-action@v2.x
-        id: label
+        id: enhancement-label
         with:
           route: POST /repos/:owner/:repo/issues/:issue_number/labels
           owner: ${{ github.event.repository.owner.login }}
@@ -37,13 +36,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
-  label-invalid:
-    runs-on: ubuntu-latest
-    steps:
       - name: Check if PR is closed and not merged
         if: github.event.pull_request.merged == false && github.event.pull_request.state == 'closed'
         uses: octokit/request-action@v2.x
-        id: label
+        id: invalid-label
         with:
           route: POST /repos/:owner/:repo/issues/:issue_number/labels
           owner: ${{ github.event.repository.owner.login }}
@@ -53,10 +49,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
-  remove-milestone:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check if PR is closed and not merged
+      - name: Remove Milestone for closed, unmerged PR
         if: github.event.pull_request.merged == false && github.event.pull_request.state == 'closed'
         uses: octokit/request-action@v2.x
         id: milestone
