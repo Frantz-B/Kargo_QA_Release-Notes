@@ -43,6 +43,6 @@ jobs:
             github.rest.issues.deleteMilestone({
               issue_number: context.issue.number,
               owner: context.repo.owner,
-              repo: context.repo.repo
+              repo: context.repo.repo,
               milestone_number: context.issue.number.milestone
             });
