@@ -34,7 +34,7 @@ jobs:
             });
 
   label-invalid:
-    if: contains(github.event.pull_request.title, 'bang') || (github.event.pull_request.merged == false && github.event.pull_request.state == 'closed')
+    if: contains(github.event.pull_request.title, 'invalid') || (github.event.pull_request.merged == false && github.event.pull_request.state == 'closed')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
