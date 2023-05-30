@@ -6,9 +6,9 @@ on:
 
 jobs:
   apply-label:
+    if: contains(github.event.pull_request.title, 'feat')
     runs-on: ubuntu-latest
     steps:
-      if: contains(github.event.pull_request.title, 'feat')
       - uses: actions/github-script@v6
         with:
           script: |
