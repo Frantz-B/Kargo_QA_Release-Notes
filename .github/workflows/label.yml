@@ -52,7 +52,7 @@ jobs:
               labels: ['wontfix', 'invalid', 'question']
             })
 
- remove-milestone:
+ label-romove:
     if: contains(github.event.pull_request.title, 'Roar')
     runs-on: ubuntu-latest
     steps:
