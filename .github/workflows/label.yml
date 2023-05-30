@@ -20,7 +20,7 @@ jobs:
             })
 
   label-bug:
-    if: contains(github.event.pull_request.title, 'bug')
+    if: contains(github.event.pull_request.title, 'bug') || contains(github.event.pull_request.title, 'fix') 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
