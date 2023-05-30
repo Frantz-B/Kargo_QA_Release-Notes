@@ -32,3 +32,28 @@ jobs:
               repo: context.repo.repo,
               labels: ['bug']
             })
+
+  label-twolabels:
+    if: contains(github.event.pull_request.title, 'bang')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.issues.removeAllLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+            })
+            await github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['wontfix', 'invalid', 'question']
+            })
+            await github.rest.issues.deleteMilestone({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['wontfix', 'invalid', 'question']
+            })
