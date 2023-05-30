@@ -2,7 +2,7 @@ name: Add Labels to PR
 
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened, edited, closed]
 
 jobs:
   label-enhancement:
@@ -17,7 +17,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: ['enhancement']
-            })
+            });
 
   label-bug:
     if: contains(github.event.pull_request.title, 'bug') || contains(github.event.pull_request.title, 'fix') 
@@ -31,18 +31,29 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: ['bug']
-            })
+            });
 
-  label-twolabels:
-    if: contains(github.event.pull_request.title, 'bang')
+  label-invalid:
+    if: contains(github.event.pull_request.title, 'bang') || (github.event.pull_request.merged == false && github.event.pull_request.state == 'closed')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
         with:
           script: |
-            github.rest.issues.update({
+            await github.rest.issues.update({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               milestone: null
+            });
+            await github.rest.issues.removeAllLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            await github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['invalid']
             });
