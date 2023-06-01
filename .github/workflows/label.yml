@@ -2,70 +2,58 @@ name: Add Labels to PR
 
 on:
   pull_request:
-    types:
-      - opened
-      - synchronize
+    types: [opened, edited, closed]
 
 jobs:
-  label-bug:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check for 'bug' in PR title
-        if: contains(github.event.pull_request.title, 'bug')
-        uses: octokit/request-action@v2.x
-        id: bug-label
-        with:
-          route: POST /repos/:owner/:repo/issues/:issue_number/labels
-          owner: ${{ github.event.repository.owner.login }}
-          repo: ${{ github.event.repository.name }}
-          issue_number: ${{ github.event.pull_request.number }}
-          labels: bug
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-
   label-enhancement:
+    if: contains(github.event.pull_request.title, 'feat')
     runs-on: ubuntu-latest
     steps:
-      - name: Check for 'feature' in PR title
-        if: contains(github.event.pull_request.title, 'feat')
-        uses: octokit/request-action@v2.x
-        id: enhancement-label
+      - uses: actions/github-script@v6
         with:
-          route: POST /repos/:owner/:repo/issues/:issue_number/labels
-          owner: ${{ github.event.repository.owner.login }}
-          repo: ${{ github.event.repository.name }}
-          issue_number: ${{ github.event.pull_request.number }}
-          labels: enhancement
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['enhancement']
+            });
+
+  label-bug:
+    if: contains(github.event.pull_request.title, 'bug') || contains(github.event.pull_request.title, 'fix') 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['bug']
+            });
 
   label-invalid:
+    if: contains(github.event.pull_request.title, 'invalid') || (github.event.pull_request.merged == false && github.event.pull_request.state == 'closed')
     runs-on: ubuntu-latest
     steps:
-      - name: Check if PR is closed and not merged
-        if: github.event.pull_request.merged == false && github.event.pull_request.state == 'closed'
-        uses: octokit/request-action@v2.x
-        id: invalid-label
+      - uses: actions/github-script@v6
         with:
-          route: POST /repos/:owner/:repo/issues/:issue_number/labels
-          owner: ${{ github.event.repository.owner.login }}
-          repo: ${{ github.event.repository.name }}
-          issue_number: ${{ github.event.pull_request.number }}
-          labels: invalid
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-
-  remove-milestone:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Remove Milestone for closed, unmerged PR
-        if: github.event.pull_request.merged == false && github.event.pull_request.state == 'closed'
-        uses: octokit/request-action@v2.x
-        id: milestone
-        with:
-          route: DELETE /repos/:owner/:repo/issues/:issue_number/milestone
-          owner: ${{ github.event.repository.owner.login }}
-          repo: ${{ github.event.repository.name }}
-          issue_number: ${{ github.event.pull_request.number }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          script: |
+            await github.rest.issues.update({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              milestone: null
+            });
+            await github.rest.issues.removeAllLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            await github.rest.issues.addLabels({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: ['invalid']
+            });
