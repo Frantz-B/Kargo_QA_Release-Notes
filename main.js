@@ -238,7 +238,7 @@ async function gitApiRequest(projectGitName, endPoint, methodType, methodBody) {
     let apiResponse;
     
     try {
-        if (!localStorage.gitApiKey) throw new Error('Must Enter GitHub API to use tool.');
+        if (!localStorage.gitApiKey) throw new Error('Must Enter GitHub API-Key to use tool.');
     } catch (error) {
         console.log(error.message);
         document.getElementById('missing-apiKey-msg').innerHTML = error.message;
