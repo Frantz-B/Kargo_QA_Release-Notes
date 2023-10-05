@@ -6,7 +6,7 @@ on:
 
 jobs:
   label-enhancement:
-    if: contains(github.event.pull_request.title, 'feat')
+    if: contains(github.event.pull_request.title, 'feat') || contains(github.event.pull_request.title, 'enhance') 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
@@ -56,18 +56,4 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               labels: ['invalid']
-            });
-
-  label-conflicts:
-    if: contains(github.event.pull_request.title, 'conflict') || (contains(github.event.pull_request.title, '4') && contains(github.event.pull_request.title, '7'))
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['file conflicts']
             });
