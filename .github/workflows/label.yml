@@ -6,7 +6,7 @@ on:
 
 jobs:
   label-enhancement:
-    if: contains(github.event.pull_request.title, 'feat')
+    if: contains(github.event.pull_request.title, 'feat') || contains(github.event.pull_request.title, 'enhance') 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v6
