@@ -37,7 +37,7 @@ const projectList = {
     },
     "DEAL-SYNC": {
         githubName: 'deal-sync',
-        longName: 'Deal-Sync Service for Deal Manager',
+        longName: 'Deal-Sync Service for KM and DM',
         jiraShortName: 'DM'
     },
     "SYNC-DIFF": {
@@ -90,11 +90,51 @@ const projectList = {
         longName: 'Composer Backend',
         jiraShortName: 'CM'
     },
-    "COMPOSER-FRONT": {
+    "AD-COMPOSER-REACT": {
         githubName: 'ad-composer-react',
         longName: 'Composer Frontend',
         jiraShortName: 'CM'
-    }
+    },
+    "RETAIL-API": {
+        githubName: 'retail-api',
+        longName: 'Retail API',
+        jiraShortName: 'KAT'
+    },
+    "SNIPPET-SERVICE": {
+        githubName: 'ad-snippet-service',
+        longName: 'Snippet Service',
+        jiraShortName: 'KAT'
+    },
+    "AD-TAG": {
+        githubName: 'ad-tag',
+        longName: 'Ad Tag',
+        jiraShortName: 'KAT'
+    },
+    "DEMO-SITE": {
+        githubName: 'ad-demo-platform',
+        longName: 'Demo Site',
+        jiraShortName: 'KAT'
+    },
+    KARGONAUT: {
+        githubName: 'ad-kargonaut',
+        longName: 'Kargonaut',
+        jiraShortName: 'KAT'
+    },
+    KROSSBOW: {
+        githubName: 'ad-krossbow',
+        longName: 'Krossbow / Ad Tag E2E Testing',
+        jiraShortName: 'KAT'
+    },
+    "AD-PLATFORM-TEMPLATES": {
+        githubName: 'ad-platform-templates',
+        longName: 'Ad Platform Templates',
+        jiraShortName: 'KAT'
+    },
+    KALITRA: {
+        githubName: 'ad-kalitra',
+        longName: 'Kalitra',
+        jiraShortName: 'KAT'
+    },
 };
 
 if (localStorage.gitApiKey) {
