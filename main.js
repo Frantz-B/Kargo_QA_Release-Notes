@@ -130,9 +130,9 @@ const projectList = {
         longName: 'Ad Platform Templates',
         jiraShortName: 'KAT'
     },
-    KALITRA: {
-        githubName: 'ad-kalitra',
-        longName: 'Kalitra',
+    KAILTRA: {
+        githubName: 'ad-kailtra',
+        longName: 'Kailtra',
         jiraShortName: 'KAT'
     },
 };
