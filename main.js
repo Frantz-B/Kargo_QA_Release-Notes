@@ -135,6 +135,16 @@ const projectList = {
         longName: 'Kailtra',
         jiraShortName: 'KAT'
     },
+    KAIL: {
+        githubName: 'ad-innovation-library',
+        longName: 'Kargo Ad Innovation Library',
+        jiraShortName: 'KAT'
+    },
+    COP: {
+        githubName: 'ad-chrome-extension',
+        longName: 'Ad Chrome Extension / COP (Creative on Pub)',
+        jiraShortName: 'KAT'
+    },
 };
 
 if (localStorage.gitApiKey) {
