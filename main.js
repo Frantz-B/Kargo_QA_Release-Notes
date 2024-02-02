@@ -133,6 +133,16 @@ const projectList = {
     KAILTRA: {
         githubName: 'ad-kailtra',
         longName: 'Kailtra',
+        jiraShortName: 'KATT'
+    },
+    KAIL: {
+        githubName: 'ad-innovation-library',
+        longName: 'Kargo Ad Innovation Library',
+        jiraShortName: 'KAT'
+    },
+    COP: {
+        githubName: 'ad-chrome-extension',
+        longName: 'Ad Chrome Extension / COP (Creative on Pub)',
         jiraShortName: 'KAT'
     },
 };
