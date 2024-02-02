@@ -142,7 +142,7 @@ const projectList = {
     },
     COP: {
         githubName: 'ad-chrome-extension',
-        longName: 'Ad Chrome Extension / COP (Creative on Pub)',
+        longName: 'Ad Chrome Extension/COP (Creative on Pub)',
         jiraShortName: 'KAT'
     },
 };
