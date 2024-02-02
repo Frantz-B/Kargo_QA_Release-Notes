@@ -133,7 +133,7 @@ const projectList = {
     KAILTRA: {
         githubName: 'ad-kailtra',
         longName: 'Kailtra',
-        jiraShortName: 'KAT'
+        jiraShortName: 'KATT'
     },
     KAIL: {
         githubName: 'ad-innovation-library',
