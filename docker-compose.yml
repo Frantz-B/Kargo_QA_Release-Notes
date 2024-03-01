@@ -1,0 +1,30 @@
+version: '2'
+
+networks:
+  krg.io:
+    external:
+      name: krg.io
+
+services:
+  qa-release-tool:
+    container_name: qa-release-tool
+    build:
+      context: .
+    volumes:
+      - .:/usr/share/nginx/html
+    ports:
+      - "8000:80"
+      - "443"
+    environment:
+      HOST_PORT: 80
+    restart: always
+    networks:
+      - krg.io
+
+    # Labels will be used if you are using traefik reverse proxy on local instead of base-infrastructure
+    labels:
+      - "traefik.http.routers.qa-release-tool.rule=host(`qa-release-tool.krg.io`)"
+      - "traefik.docker.network=krg.io"
+      - "traefik.http.services.qa-release-tool.loadbalancer.server.port=80"
+      - "traefik.http.routers.qa-release-tool-https.rule=host(`qa-release-tool.krg.io`)"
+      - "traefik.http.routers.qa-release-tool-https.tls=true"
