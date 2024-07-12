@@ -110,6 +110,11 @@ const projectList = {
         longName: 'Ad Tag',
         jiraShortName: 'KAT'
     },
+    "KOALA": {
+        githubName: 'ad-koala',
+        longName: 'KOALA',
+        jiraShortName: 'KAT'
+    },
     "DEMO-SITE": {
         githubName: 'ad-demo-platform',
         longName: 'Demo Site',
