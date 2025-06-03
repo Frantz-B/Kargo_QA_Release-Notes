@@ -45,6 +45,11 @@ const projectList = {
         longName: 'Sync-Diff Service for Kargo Marketplace',
         jiraShortName: 'KM'
     },
+    "AD-MANAGER": {
+        githubName: 'ad-manager',
+        longName: 'Ad-Manager Service for KM and DM',
+        jiraShortName: 'KM'
+    },
     KAM: {
         githubName: 'kam',
         longName: 'Altice `Backend`',
