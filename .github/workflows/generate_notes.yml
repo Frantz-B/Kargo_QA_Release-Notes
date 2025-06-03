@@ -31,17 +31,17 @@ jobs:
           RELEASE_TAG="${{ steps.get_release.outputs.release_tag }}"
           # Try to find a milestone with a title matching the release tag
           # or a close variant (e.g., "v1.0.0" vs "1.0.0")
-          MILENSTONE_ID=$(gh api \
+          MILESTONE_ID=$(gh api \
             --jq '.[] | select(.title == "'"$RELEASE_TAG"'" or .title == "'"${RELEASE_TAG#v}"'" ) | .number' \
             /repos/${{ github.repository }}/milestones \
             --paginate)
 
-          if [ -z "$MILENSTONE_ID" ]; then
+          if [ -z "$MILESTONE_ID" ]; then
             echo "::warning::No milestone found matching release tag: $RELEASE_TAG. Skipping PR categorization."
             echo "milestone_id=" >> $GITHUB_OUTPUT
           else
-            echo "Found Milestone ID: $MILENSTONE_ID"
-            echo "milestone_id=$MILENSTONE_ID" >> $GITHUB_OUTPUT
+            echo "Found Milestone ID: $MILESTONE_ID"
+            echo "milestone_id=$MILESTONE_ID" >> $GITHUB_OUTPUT
           fi
 
       - name: Get PRs for Milestone and Categorize
@@ -49,7 +49,7 @@ jobs:
         if: success() && steps.find_milestone.outputs.milestone_id != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MILENSTONE_ID: ${{ steps.find_milestone.outputs.milestone_id }}
+          MILESTONE_ID: ${{ steps.find_milestone.outputs.milestone_id }}
         run: |
           BUG_PRS=""
           ENHANCEMENT_PRS=""
@@ -58,7 +58,7 @@ jobs:
           # Fetch all closed PRs associated with the milestone
           gh api \
             --paginate \
-            "/repos/${{ github.repository }}/pulls?state=closed&milestone=${{ env.MILENSTONE_ID }}" \
+            "/repos/${{ github.repository }}/pulls?state=closed&milestone=${{ env.MILESTONE_ID }}" \
             --jq '.[] | {number: .number, title: .title, url: .html_url, labels: [.labels[].name]}' | \
           while IFS= read -r pr; do
             PR_NUMBER=$(echo "$pr" | jq -r '.number')
