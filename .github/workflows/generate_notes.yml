@@ -29,8 +29,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           RELEASE_TAG="${{ steps.get_release.outputs.release_tag }}"
-          # Try to find a milestone with a title matching the release tag
-          # or a close variant (e.g., "v1.0.0" vs "1.0.0")
+          # Try to find a milestone with a title matching the release tag or a close variant (e.g., "v1.0.0" vs "1.0.0")
           MILESTONE_ID=$(gh api \
             --jq '.[] | select(.title == "'"$RELEASE_TAG"'" or .title == "'"${RELEASE_TAG#v}"'" ) | .number' \
             /repos/${{ github.repository }}/milestones \
@@ -55,16 +54,16 @@ jobs:
           ENHANCEMENT_PRS=""
           OTHER_PRS=""
 
-          # Fetch all closed PRs associated with the milestone
+          # Fetch all closed issues associated with the milestone, filter for PRs only
           gh api \
             --paginate \
-            "/repos/${{ github.repository }}/issues?state=closed&milestone=${{ env.MILENSTONE_ID }}" \
+            "/repos/${{ github.repository }}/issues?state=closed&milestone=${{ env.MILESTONE_ID }}" \
             --jq '.[] | select(.pull_request) | {number: .number, title: .title, url: .html_url, labels: [.labels[].name]}' | \
           while IFS= read -r pr; do
             PR_NUMBER=$(echo "$pr" | jq -r '.number')
             PR_TITLE=$(echo "$pr" | jq -r '.title')
             PR_URL=$(echo "$pr" | jq -r '.url')
-            PR_LABELS=$(echo "$pr" | jq -r '.labels[]')
+            PR_LABELS=$(echo "$pr" | jq -r '.labels[]?')
 
             IS_BUG=false
             IS_ENHANCEMENT=false
@@ -106,7 +105,11 @@ jobs:
       - name: Generate Release Notes Content
         id: generate_content
         run: |
-          RELEASE_NAME="${{ github.event.release.name || github.event.release.tag_name }}"
+          RELEASE_NAME="${{ github.event.release.name }}"
+          RELEASE_TAG="${{ github.event.release.tag_name }}"
+          if [ -z "$RELEASE_NAME" ]; then
+            RELEASE_NAME="$RELEASE_TAG"
+          fi
           RELEASE_BODY="${{ github.event.release.body }}"
 
           NOTES_CONTENT="## Release Notes: ${RELEASE_NAME}\n\n"
