@@ -104,6 +104,10 @@ jobs:
           echo -e "$OTHER_PRS" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
+          echo "Bug PRs: $BUG_PRS"
+          echo "Enhancement PRs: $ENHANCEMENT_PRS"
+          echo "Other PRs: What the F "
+
       - name: Generate Release Notes Content
         id: generate_content
         run: |
@@ -114,7 +118,8 @@ jobs:
           fi
           RELEASE_BODY="${{ github.event.release.body }}"
 
-          NOTES_CONTENT="## Release Notes: ${RELEASE_NAME}\n\n"
+          NOTES_CONTENT="🚀 - BUILD RELEASE - 🚀\n"
+          NOTES_CONTENT="* ${RELEASE_NAME} was released on Date\n\n"
 
           if [ -n "${{ steps.get_prs.outputs.bug_prs }}" ]; then
             NOTES_CONTENT+="### :bug: Bug Fixes\n"
