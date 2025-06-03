@@ -23,20 +23,22 @@ jobs:
           echo "Release Tag: $RELEASE_TAG"
           echo "release_tag=$RELEASE_TAG" >> $GITHUB_OUTPUT
 
-      - name: Find Corresponding Milestone
+      - name: Find Milestone by Tag Number in Title
         id: find_milestone
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           RELEASE_TAG="${{ steps.get_release.outputs.release_tag }}"
-          # Try to find a milestone with a title matching the release tag or a close variant (e.g., "v1.0.0" vs "1.0.0")
+          # Extract just the version number (ex: v4.2.0 or 4.2.0)
+          VERSION="${RELEASE_TAG#v}"
+          # Find milestone where the title contains the version number (case-insensitive)
           MILESTONE_ID=$(gh api \
-            --jq '.[] | select(.title == "'"$RELEASE_TAG"'" or .title == "'"${RELEASE_TAG#v}"'" ) | .number' \
+            --jq '.[] | select((.title | ascii_downcase) | test("'${VERSION,,}'")) | .number' \
             /repos/${{ github.repository }}/milestones \
-            --paginate)
+            --paginate | head -n1)
 
           if [ -z "$MILESTONE_ID" ]; then
-            echo "::warning::No milestone found matching release tag: $RELEASE_TAG. Skipping PR categorization."
+            echo "::warning::No milestone found matching version: $VERSION. Skipping PR categorization."
             echo "milestone_id=" >> $GITHUB_OUTPUT
           else
             echo "Found Milestone ID: $MILESTONE_ID"
