@@ -1,0 +1,151 @@
+name: Generate Release Notes with Milestone PRs
+
+on:
+  release:
+    types: [published] # This workflow runs when a release is published
+
+jobs:
+  generate_release_notes:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # To create/update the release notes file
+      issues: read    # To read milestone and PR data
+      pull-requests: read # To read PR data and labels
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get Release Information
+        id: get_release
+        run: |
+          RELEASE_TAG="${{ github.event.release.tag_name }}"
+          echo "Release Tag: $RELEASE_TAG"
+          echo "release_tag=$RELEASE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Find Corresponding Milestone
+        id: find_milestone
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          RELEASE_TAG="${{ steps.get_release.outputs.release_tag }}"
+          # Try to find a milestone with a title matching the release tag
+          # or a close variant (e.g., "v1.0.0" vs "1.0.0")
+          MILENSTONE_ID=$(gh api \
+            --jq '.[] | select(.title == "'"$RELEASE_TAG"'" or .title == "'"${RELEASE_TAG#v}"'" ) | .number' \
+            /repos/${{ github.repository }}/milestones \
+            --paginate)
+
+          if [ -z "$MILENSTONE_ID" ]; then
+            echo "::warning::No milestone found matching release tag: $RELEASE_TAG. Skipping PR categorization."
+            echo "milestone_id=" >> $GITHUB_OUTPUT
+          else
+            echo "Found Milestone ID: $MILENSTONE_ID"
+            echo "milestone_id=$MILENSTONE_ID" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Get PRs for Milestone and Categorize
+        id: get_prs
+        if: success() && steps.find_milestone.outputs.milestone_id != ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MILENSTONE_ID: ${{ steps.find_milestone.outputs.milestone_id }}
+        run: |
+          BUG_PRS=""
+          ENHANCEMENT_PRS=""
+          OTHER_PRS=""
+
+          # Fetch all closed PRs associated with the milestone
+          gh api \
+            --paginate \
+            "/repos/${{ github.repository }}/pulls?state=closed&milestone=${{ env.MILENSTONE_ID }}" \
+            --jq '.[] | {number: .number, title: .title, url: .html_url, labels: [.labels[].name]}' | \
+          while IFS= read -r pr; do
+            PR_NUMBER=$(echo "$pr" | jq -r '.number')
+            PR_TITLE=$(echo "$pr" | jq -r '.title')
+            PR_URL=$(echo "$pr" | jq -r '.url')
+            PR_LABELS=$(echo "$pr" | jq -r '.labels[]')
+
+            IS_BUG=false
+            IS_ENHANCEMENT=false
+
+            for label in $PR_LABELS; do
+              case "$label" in
+                "bug" | "Bug" | "fix" | "Bugfix" | "defect")
+                  IS_BUG=true
+                  ;;
+                "enhancement" | "Enhancement" | "feature" | "Feature")
+                  IS_ENHANCEMENT=true
+                  ;;
+              esac
+            done
+
+            PR_LINE="- #${PR_NUMBER} [${PR_TITLE}](${PR_URL})"
+
+            if $IS_BUG; then
+              BUG_PRS+="$PR_LINE\n"
+            elif $IS_ENHANCEMENT; then
+              ENHANCEMENT_PRS+="$PR_LINE\n"
+            else
+              OTHER_PRS+="$PR_LINE\n"
+            fi
+          done
+
+          echo "bug_prs<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$BUG_PRS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "enhancement_prs<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$ENHANCEMENT_PRS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+          echo "other_prs<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$OTHER_PRS" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Generate Release Notes Content
+        id: generate_content
+        run: |
+          RELEASE_NAME="${{ github.event.release.name || github.event.release.tag_name }}"
+          RELEASE_BODY="${{ github.event.release.body }}"
+
+          NOTES_CONTENT="## Release Notes: ${RELEASE_NAME}\n\n"
+
+          if [ -n "${{ steps.get_prs.outputs.bug_prs }}" ]; then
+            NOTES_CONTENT+="### :bug: Bug Fixes\n"
+            NOTES_CONTENT+="${{ steps.get_prs.outputs.bug_prs }}\n"
+          fi
+
+          if [ -n "${{ steps.get_prs.outputs.enhancement_prs }}" ]; then
+            NOTES_CONTENT+="### :sparkles: Enhancements\n"
+            NOTES_CONTENT+="${{ steps.get_prs.outputs.enhancement_prs }}\n"
+          fi
+
+          if [ -n "${{ steps.get_prs.outputs.other_prs }}" ]; then
+            NOTES_CONTENT+="### :gear: Other Changes\n"
+            NOTES_CONTENT+="${{ steps.get_prs.outputs.other_prs }}\n"
+          fi
+
+          # Append any existing release body
+          if [ -n "$RELEASE_BODY" ]; then
+            NOTES_CONTENT+="\n---\n"
+            NOTES_CONTENT+="$RELEASE_BODY\n"
+          fi
+
+          echo "notes_content<<EOF" >> $GITHUB_OUTPUT
+          echo -e "$NOTES_CONTENT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Update Release Description
+        if: success() && steps.find_milestone.outputs.milestone_id != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const releaseId = context.payload.release.id;
+            const newBody = `${{ steps.generate_content.outputs.notes_content }}`;
+            await github.rest.repos.updateRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              release_id: releaseId,
+              body: newBody
+            });
