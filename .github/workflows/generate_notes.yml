@@ -58,8 +58,8 @@ jobs:
           # Fetch all closed PRs associated with the milestone
           gh api \
             --paginate \
-            "/repos/${{ github.repository }}/pulls?state=closed&milestone=${{ env.MILESTONE_ID }}" \
-            --jq '.[] | {number: .number, title: .title, url: .html_url, labels: [.labels[].name]}' | \
+            "/repos/${{ github.repository }}/issues?state=closed&milestone=${{ env.MILENSTONE_ID }}" \
+            --jq '.[] | select(.pull_request) | {number: .number, title: .title, url: .html_url, labels: [.labels[].name]}' | \
           while IFS= read -r pr; do
             PR_NUMBER=$(echo "$pr" | jq -r '.number')
             PR_TITLE=$(echo "$pr" | jq -r '.title')
