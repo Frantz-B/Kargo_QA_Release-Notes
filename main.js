@@ -103,7 +103,7 @@ const projectList = {
     "CREATIVE HUB": {
         githubName: 'creative-hub',
         longName: 'Creative Hub',
-        jiraShortName: 'CRM'
+        jiraShortName: 'CH'
     },
     "RETAIL-API": {
         githubName: 'retail-api',
