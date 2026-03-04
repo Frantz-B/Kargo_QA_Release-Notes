@@ -95,10 +95,15 @@ const projectList = {
         longName: 'Composer Backend',
         jiraShortName: 'CM'
     },
-    "AD-COMPOSER-REACT": {
-        githubName: 'ad-composer-react',
-        longName: 'Composer Frontend',
+    "CREATIVE MACHINA": {
+        githubName: 'creative-machina',
+        longName: 'Creative Hub Builder',
         jiraShortName: 'CM'
+    },
+    "CREATIVE HUB": {
+        githubName: 'creative-hub',
+        longName: 'Creative Hub',
+        jiraShortName: 'CRM'
     },
     "RETAIL-API": {
         githubName: 'retail-api',
